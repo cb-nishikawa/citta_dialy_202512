@@ -1,10 +1,11 @@
 
-import { init as _common } from "./_common/";
+import { init as _image } from "./_image/";
 import { init as _header } from "./_header/";
+
 
 function _commonInit(_g) {
 	if (_g.console) console.log("_commonInit loaded");
-	_common(_g);
+	_image(_g);
 	_header(_g);
 }
 

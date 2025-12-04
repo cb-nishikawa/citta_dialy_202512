@@ -157,13 +157,13 @@ function header__hiddenChange(_g, _tg) {
 			}
 		});
 
-		const isNowHidden = _tg.classList.contains("is-hidden");
+		const isNowHidden = _tg.classList.contains("is-hidden_important");
 		if (hidden && !isNowHidden) {
-			_tg.classList.add("is-hidden");
-			if (_g.console) console.log("is-hidden set to true");
+			_tg.classList.add("is-hidden_important");
+			if (_g.console) console.log("is-hidden_important set to true");
 		} else if (!hidden && isNowHidden) {
-			_tg.classList.remove("is-hidden");
-			if (_g.console) console.log("is-hidden set to false");
+			_tg.classList.remove("is-hidden_important");
+			if (_g.console) console.log("is-hidden_important set to false");
 		}
 	}
 

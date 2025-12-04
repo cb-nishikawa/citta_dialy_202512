@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import { ViteEjsPlugin } from "vite-plugin-ejs";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
   root: "src",
@@ -15,8 +16,7 @@ export default defineConfig({
           const ext = assetInfo.name ? assetInfo.name.split(".").pop() : "";
 
           if (ext === "css") return "assets/css/style.css";
-          if (/(png|jpg|jpeg|gif|svg|webp|avif)$/.test(ext))
-            return "assets/images/[name][extname]";
+          // 画像はvite-plugin-static-copyで処理するのでここでは除外
           if (/(woff2?|ttf|otf|eot)$/.test(ext))
             return "assets/fonts/[name][extname]";
 
@@ -52,5 +52,15 @@ export default defineConfig({
     },
 
     ViteEjsPlugin(),
+    
+    // 画像を強制的にdistにコピー
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'assets/image/**/*',
+          dest: 'assets/image'
+        }
+      ]
+    }),
   ],
 });

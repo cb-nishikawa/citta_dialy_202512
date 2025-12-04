@@ -15,6 +15,11 @@
         opacity: 0;
     }
 
+    &.is-hidden_important {
+        pointer-events: none !important;
+        opacity: 0 !important;
+    }
+
     &::after {
         content: "";
         display: block;

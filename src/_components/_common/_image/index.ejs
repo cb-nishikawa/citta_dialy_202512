@@ -1,0 +1,29 @@
+<%
+  const imagePath = locals.imagePath || '';
+  const alt = locals.alt || '';
+  const sizes = locals.sizes || '100vw';
+  const baseWidth = locals.baseWidth || 1920; // デフォルト値
+  const basePath = imagePath.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+  
+  // スケール比率から実際の幅を計算
+  const width100 = baseWidth;
+  const width70 = Math.round(baseWidth * 0.7);
+  const width50 = Math.round(baseWidth * 0.5);
+  const width30 = Math.round(baseWidth * 0.3);
+%>
+<picture>
+  <source 
+    data-srcset="<%= basePath %>.webp <%= width100 %>w,
+                 <%= basePath %>_0.7.webp <%= width70 %>w,
+                 <%= basePath %>_0.5.webp <%= width50 %>w,
+                 <%= basePath %>_0.3.webp <%= width30 %>w"
+    sizes="<%= sizes %>"
+    type="image/webp">
+
+  <img
+    class="lazyImage lazyload"
+    data-src="<%= basePath %>.png"
+    alt="<%= alt %>"
+    loading="lazy"
+  >
+</picture>
