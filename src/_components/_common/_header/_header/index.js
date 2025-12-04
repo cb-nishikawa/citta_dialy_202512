@@ -12,6 +12,74 @@ function headerFunc(_g) {
 	header__colorChange(_g, target);
 	header__hiddenChange(_g, target);
 	header__humbergerBtn(_g, target);
+	header__scrollHidden(_g, target);
+}
+
+function header__scrollHidden(_g, _tg) {
+	let lastScrollY = window.pageYOffset;
+	let headerHeight = _tg.offsetHeight;
+	let ticking = false;
+	let mousemoveAdded = false;
+
+	function updateHeaderHeight() {
+		headerHeight = _tg.offsetHeight;
+	}
+	window.addEventListener("resize", updateHeaderHeight);
+
+	function onMouseMove(e) {
+		if (e.clientY <= headerHeight) {
+			if (_tg.classList.contains("is-hidden")) {
+				_tg.classList.remove("is-hidden");
+				if (_g.console) console.log("is-hidden removed by mouse at top");
+			}
+		}
+	}
+
+	function handleScroll() {
+		const currentScrollY = window.pageYOffset;
+
+		if (currentScrollY > lastScrollY) {
+			if (!_tg.classList.contains("is-hidden")) {
+				_tg.classList.add("is-hidden");
+				if (_g.console) console.log("is-hidden set to true");
+			}
+		} else {
+			if (_tg.classList.contains("is-hidden")) {
+				_tg.classList.remove("is-hidden");
+				if (_g.console) console.log("is-hidden set to false");
+			}
+		}
+
+		lastScrollY = currentScrollY;
+
+		if (currentScrollY <= 0) {
+			if (_tg.classList.contains("is-hidden")) {
+				_tg.classList.remove("is-hidden");
+				if (_g.console) console.log("is-hidden removed at top");
+			}
+		}
+
+		// add mousemove listener only once
+		if (!mousemoveAdded) {
+			document.addEventListener("mousemove", onMouseMove);
+			mousemoveAdded = true;
+		}
+	}
+
+	function onScroll() {
+		if (!ticking) {
+			ticking = true;
+			requestAnimationFrame(() => {
+				handleScroll();
+				ticking = false;
+			});
+		}
+	}
+
+	window.addEventListener("scroll", onScroll);
+
+	// initial check
+	handleScroll();
 }
 
 function header__humbergerBtn(_g, _tg) {

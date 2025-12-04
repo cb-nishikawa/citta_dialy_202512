@@ -1,5 +1,8 @@
 
+import { init as _image } from "./_image/";
+
 function init(_g) {
+	_image(_g);
 	bodyScroll(_g);
 }
 
