@@ -1,0 +1,40 @@
+
+@use "../../../assets/scss/s_config" as config;
+
+.c-topNews01 {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 100;
+
+    box-sizing: border-box;
+
+    .block.menu {
+        position: absolute;
+        left: 0;
+        width: config.vwpc(560);
+        height: 100%;
+    }
+
+    .block.contents {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - config.vwpc(560));
+        // padding: 100svh 0;
+        
+        .item {
+            width: 100%;
+            padding: config.vwpc(80) 0;
+            background-color: #DFDFDF;
+        }
+        .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: config.vwpc(300);
+            height: config.vwpc(300);
+            background-color: #CFCFCF;
+        }
+    }
+}
+

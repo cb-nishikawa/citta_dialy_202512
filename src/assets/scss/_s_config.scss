@@ -1,0 +1,156 @@
+@use 'sass:math';
+@use 'sass:meta';
+// 単位を除去する関数
+@function strip-unit($value) {
+  @return if(meta.type-of($value) == 'number' and math.is-unitless($value) == false, math.div($value, $value * 0 + 1), $value);
+}
+
+/* DEFAULT_VARIABLE */
+
+// Breakpoints
+$RES_WID_EXTRA_SMALL03: 400px;
+$RES_WID_EXTRA_SMALL02: 320px;
+$RES_WID_EXTRA_SMALL01: 576px;
+$RES_WID_SMALL01: 768px;
+$RES_WID_MEDIUM02: 900px;
+$RES_WID_MEDIUM01: 1000px;
+$RES_WID_LARGE01: 1200px;
+$RES_WID_EXTRA_LARGE01: 1400px;
+$RES_WID_EXTRA_LARGE02: 2800px;
+
+$CONTENTS_WID_EXTRA_SMALL01: 800px;
+$CONTENTS_WID_SMALL01: 900px;
+$CONTENTS_WID_MEDIUM01: 1000px;
+$CONTENTS_WID_LARGE01: 1200px;
+$CONTENTS_WID_EXTRA_LARGE01: 1400px;
+
+// Fonts
+$DF_FONT: "Zen Kaku Gothic New", "ヒラギノ角ゴ ProN W3", "メイリオ", sans-serif;
+$DF_FONT_MIN: "Shippori Mincho", "ヒラギノ明朝 Pro W3" , "HiraMinProN-W3" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+
+// Colors
+$DF_BG_COLOR: #FFF; // Background color
+$DF_TEXT_COLOR: #102B3E; // Text color
+$DF_SELECT_BG_COLOR: #700E75; // Selected background color
+$DF_SELECT_TEXT_COLOR: #FFF; // Selected text color
+$DF_URL_TEXT_COLOR: #337FC5; // URL text color
+
+$SUB_TEXT_COLOR01: #393939;
+$SUB_TEXT_COLOR02: #737373;
+
+
+$SITE_BG01: #FFF;
+
+// vwsp: スマホ用 vw変換
+@function vwsp($size) {
+  $rate: math.div(100, 400);
+  @return $rate * $size * 1vw;
+}
+
+// vwpc: PC用 vw変換
+@function vwpc($size) {
+  // 768pxでのサイズ（SP基準で計算、必要なら調整）
+  $min-size: math.div($size * 768, 1400);
+  // 140pxでのサイズ（PC基準でそのまま）
+  $max-size: $size;
+  // clamp-calcで可変値を返す（数値のみ渡す）
+  @return clamp-calc($min-size, $max-size, 768, 1400);
+}
+
+// fontSp: スマホ用フォント設定
+@mixin fontSp($font-size) {
+  font-size: $font-size * 1px;
+  font-size: vwsp($font-size);
+}
+
+// fontPc: PC用フォント設定
+@mixin fontPc($font-size) {
+  font-size: $font-size * 1px;
+  font-size: vwpc($font-size);
+}
+
+
+// Media Queries
+@media (min-width: $RES_WID_LARGE01) {
+
+}
+@media (min-width: $RES_WID_MEDIUM01) and (max-width: $RES_WID_LARGE01) {
+
+}
+@media (min-width: $RES_WID_SMALL01) and (max-width: $RES_WID_MEDIUM01) {
+
+}
+@media (min-width: $RES_WID_EXTRA_SMALL01) and (max-width: $RES_WID_SMALL01) {
+
+}
+@media (max-width: $RES_WID_EXTRA_SMALL01) {
+
+}
+
+
+/*
+ * 機能：clamp関数の文字列を返す
+ * 引数：$size-at-min-width サイズ(フォントサイズなど)の最小値(pxやremなどの単位は必須)
+ * 　　　$size-at-max-width サイズ(フォントサイズなど)の最大値(pxやremなどの単位は必須)
+ * 　　　$min-width [省略可]サイズが最小値に到達する画面幅
+ * 　　　$max-width [省略可]サイズが最大値に到達する画面幅
+ * 使用方法：
+ *　　デフォルトの最小画面幅$min-width-defaultと最大画面幅$max-width-defaultを事前に指定しておく
+ *　　最小幅と最大幅をデフォルト以外にしたい場合は、引数にそれぞれ単位付きの画面幅を入れる
+ */
+ $min-width-default: $RES_WID_SMALL01; // デフォルトの最小画面幅
+ $max-width-default: $RES_WID_MEDIUM01; // デフォルトの最大画面幅
+ @function clamp-calc(
+   $size-at-min-width,
+   $size-at-max-width,
+   $min-width: $min-width-default,
+   $max-width: $max-width-default
+ ) {
+   // px値を数値化
+  $min-width-num: strip-unit($min-width);
+  $max-width-num: strip-unit($max-width);
+  $min-size-num: strip-unit($size-at-min-width);
+  $max-size-num: strip-unit($size-at-max-width);
+  // グラフの斜度（Sassの数値演算のみで計算）
+  $slope: math.div($max-size-num - $min-size-num, $max-width-num - $min-width-num);
+
+  // グラフのy方向開始点の調整（Sassの数値演算のみで計算）
+  $y-axis-intersection: -1 * $min-width-num * $slope + $min-size-num;
+  // 小数点以下3桁で四捨五入
+  $y-axis-intersection: round-decimal($y-axis-intersection, 3);
+  // $slopeをvw単位に変換
+  $slope-vw: round-decimal($slope * 100, 3);
+
+   // グラフの傾斜が逆方向になる場合、clamp関数の引数の最小値と最大値を入れ替える
+   @if $size-at-max-width < $size-at-min-width {
+     $temp-max: $size-at-max-width;
+     $temp-min: $size-at-min-width;
+     $size-at-max-width: $temp-min;
+     $size-at-min-width: $temp-max;
+   }
+
+   // 最終的な結果を格納（px単位に戻す）
+  $return-value: clamp(#{$size-at-min-width}px, #{$y-axis-intersection}px + #{$slope-vw}vw, #{$size-at-max-width}px);
+   @return $return-value;
+ }
+ // 小数点以下の指定した桁数で四捨五入する関数
+ @function round-decimal($value, $decimal-place) {
+   // 四捨五入する値($value)を10の小数点以下桁数累乗倍する
+   $temp-value: calc($value * pow(10, $decimal-place));
+   // 累乗倍した数値で四捨五入(roundは小数点以下の指定ができない)
+   $temp-value: round($temp-value);
+   // 四捨五入した値を再度同じ10の累乗倍の数値で割った数値を返す
+   @return calc($temp-value / pow(10, $decimal-place));
+ }
+ // 累乗の関数(指数は正の整数のみで有効、負の指数は対象外)
+ @function pow($number, $exponent) {
+   $value: 1;
+
+   @if $exponent > 0 {
+     @for $i from 1 through $exponent {
+       $value: $value * $number;
+     }
+   }
+   @return $value;
+ }
+

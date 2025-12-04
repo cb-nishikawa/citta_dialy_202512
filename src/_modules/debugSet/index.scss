@@ -1,0 +1,88 @@
+
+.c-debugSet01 {
+	display: none;
+	pointer-events: none;
+	flex-direction: column;
+
+	&.is-active {
+		pointer-events: all;
+		display: flex;
+	}
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #FFF;
+	font-size: 12px;
+	z-index: 10000;
+	padding: 5px;
+	box-sizing: border-box;
+
+	.contents {
+		display: flex;
+		height: 100%;
+		.leftArea, .rightArea {
+			padding: 5px;
+			box-sizing: border-box;
+		}
+		.leftArea {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 50%;
+			background-color: rgba(0, 0, 0, 0.1);
+
+			.topArea {
+				margin-bottom: 10px;
+			}
+			.bottomArea {
+			}
+		}
+		.rightArea {
+			overflow: scroll;
+			width: 50%;
+			max-height: 100svh;
+			background-color: rgba(0, 0, 0, 0.2);
+
+			.debugArea {
+				&>* {
+					margin-bottom: 5px;
+					font-size: 10px;
+					line-height: 1.6;
+				}
+			}
+		}	
+	}
+}
+
+.c-loaderSet01 {
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #D4C4AB;
+
+	.logo {
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 60px;
+		font-weight: bold;
+	}
+
+	.loading {
+		opacity: 0;
+		width: 50px;
+		height: 50px;
+		background-color: #F00;
+	}
+
+}
+

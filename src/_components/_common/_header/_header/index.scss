@@ -1,0 +1,97 @@
+@use "../../../../assets/scss/s_config" as config;
+
+
+.c-globalHeader01 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9800;
+    width: 100%;
+    padding: config.vwpc(20);
+    box-sizing: border-box;
+    transition: opacity 0.5s ease;
+
+    &.is-hidden {
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    }
+    .block.contents {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: relative;
+        z-index: 100;
+
+        .area.logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: config.vwpc(220);
+            height: config.vwpc(80);
+            background-color: #CCC;
+        }
+
+        .area.btn {
+            pointer-events: none;
+            opacity: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            position: absolute;
+            top: config.vwpc(20);
+            right: config.vwpc(20);
+
+            width: config.vwpc(80);
+            height: config.vwpc(60);
+
+            @media (max-width: config.$RES_WID_MEDIUM01) {
+                pointer-events: auto;
+                opacity: 1;
+            }
+
+            span {
+                display: block;
+                width: 100%;
+                height: config.vwpc(3);
+                background-color: var(--menu-color, #342622);
+                margin-right: config.vwpc(20);
+            }
+            
+        }
+
+        .area.menu {
+            @media (max-width: config.$RES_WID_MEDIUM01) {
+                pointer-events: none;
+                opacity: 0;
+            }
+            ul {
+                display: flex;
+                gap: config.vwpc(30);
+            }
+            li {
+                @include config.fontPc(16);
+            }
+            a {
+                color: var(--menu-color, #342622);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+        }
+    }
+}

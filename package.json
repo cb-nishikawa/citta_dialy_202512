@@ -1,0 +1,29 @@
+{
+  "name": "loading",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite",
+    "sass:watch": "sass --watch src/assets/scss:src/assets/css",
+    "dev:full": "npm-run-all --parallel dev sass:watch",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.13.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "pug": "^3.0.3",
+    "sass": "^1.93.2",
+    "vite": "^7.1.12",
+    "vite-plugin-ejs": "^1.7.0",
+    "vite-plugin-pug": "^0.4.1"
+  }
+}

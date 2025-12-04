@@ -1,0 +1,119 @@
+@use "../../../assets/scss/s_config" as config;
+
+.c-topDialy01 {
+    position: relative;
+    z-index: 100;
+    height: 200svh;
+    min-height: 1500px;
+    padding: config.vwpc(20);
+    box-sizing: border-box;
+    
+
+    .block.contents {
+        position: relative;
+        z-index: 1000;
+        width: 100%;
+        max-width: 1360px;
+        height: calc( 100svh - config.vwpc(40) );
+        max-height: 1000px;
+        margin: 0 auto;
+        background-color: #F5F1E2;
+        border-radius: config.vwpc(60);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .area.title {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .title {
+            @include config.fontPc(46);
+        }
+        .subTitle {
+            @include config.fontPc(16);
+        }
+    }
+    .area.contents {
+        display: flex;
+        gap: config.vwpc(20);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+
+        .textBox {
+            flex: 1;
+            .text {
+                @include config.fontPc(16);
+            }
+        }
+        .btnBox {
+            display: flex;
+            background-color: #FFF;
+            padding: config.vwpc(20);
+            .price {
+                width: 100%;
+                @include config.fontPc(24);
+            }
+            .btn {
+                flex: 1;
+
+                a {
+                    display: block;
+                    padding: config.vwpc(12);
+                    color: #FFF;
+                    background-color: #000;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .area.color {
+        display: flex;
+        flex-direction: column;
+        gap: config.vwpc(10);
+
+        position: absolute;
+        top: config.vwpc(60);
+        right: config.vwpc(60);
+
+        padding: config.vwpc(20);
+        background-color: #FFF;
+
+        .circle {
+            width: config.vwpc(60);
+            height: config.vwpc(60);
+            background-color: #EFEFEF;
+            border-radius: 100px;
+            border: none;
+        }
+    }
+
+    .area.arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 0;
+        transform: translate(-50%, -50%);
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            width: config.vwpc(80);
+            height: config.vwpc(80);
+            background-color: #F00;
+            border: none;
+            border-radius: 100px;
+            transform: translateY(-50%);
+
+            &.left {
+                left: config.vwpc(300);
+            }
+            &.right {
+                right: config.vwpc(300);
+            }
+        } 
+    }
+}

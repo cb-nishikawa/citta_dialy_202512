@@ -1,0 +1,23 @@
+@use "../../../assets/scss/s_config" as config;
+
+.c-topMainvisual01 {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100svh;
+    box-sizing: border-box;
+    padding: config.vwpc(20);
+    background-color: #FFF;
+    @include config.fontPc(18);
+    
+    .block.contents {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #DFDFDF;
+
+        border-radius: config.vwpc(16);
+    }
+}
