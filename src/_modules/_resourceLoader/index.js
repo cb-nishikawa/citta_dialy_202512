@@ -1,5 +1,5 @@
 // resourceLoaderクラスを外部化したにゃー
-import { classController } from "../classController/";
+import { classController } from "../_classController/";
 import { resourceWatcher } from "./resourceWatcher.js";
 
 class resourceLoader {

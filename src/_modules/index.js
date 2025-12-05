@@ -1,10 +1,12 @@
-import { debugSet } from "./debugSet/";
 import { gsap } from "gsap";
-import Lenis from '@studio-freight/lenis'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { resourceLoader } from "./resourceLoader/";
-import { observeClassChange } from "./observeClassChange/";
-import { classController } from "./classController/";
+
+import Lenis from '@studio-freight/lenis'
+
+import { debugSet } from "./_debugSet/";
+import { resourceLoader } from "./_resourceLoader/";
+import { observeClassChange } from "./_observeClassChange/";
+import { classController } from "./_classController/";
 
 const console = true;
 
@@ -13,14 +15,16 @@ gsap.registerPlugin(ScrollTrigger);
 // ここからグローバルセットの生成
 function globalSet() {
     return {
-        debug: debugSet(),
-        console: console,
         gsap: gsap,
         Lenis: Lenis,
+
+        debug: debugSet(),
+        
         resourceLoader: resourceLoader,
         classController: classController,
         observeClassChange: observeClassChange,
-        // 他のグローバル機能もここに追加できる
+        
+        console: console,
     };
 }
 

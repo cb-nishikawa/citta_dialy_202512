@@ -1,9 +1,7 @@
 @use "_s_reset.scss" as *;
 
 
-@forward "../../_modules/debugSet/";
+@forward "../../_modules/";
 
-@forward "../../_components/_layout/";
-@forward "../../_components/_common/";
-@forward "../../_pages/_top/";
-@forward "../../_pages/_concept/";
+@forward "../../_components/";
+@forward "../../_pages/";
