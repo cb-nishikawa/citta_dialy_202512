@@ -189,7 +189,6 @@ function header__mainvisualOver(_g, _tg) {
 		const container = document.querySelector("[data-target='containerTarget']");
 
 		if (!container) return;
-		
 		const headerRect = _tg.getBoundingClientRect();
 		const headerCenterY = headerRect.top + headerRect.height / 2;
 		const mainvisual = container.querySelectorAll("[data-target='topMainvisual01']");

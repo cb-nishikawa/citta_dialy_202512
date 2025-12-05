@@ -33,27 +33,49 @@
     }
 
     &.is-mv {
-        .block.contents {
-            .area.logo {
-                position: absolute;
-                top: config.vwpc(20);
-                right: config.vwpc(20);
-                padding: 0;
-            }
-            .area.menu {
-                position: absolute;
-                padding-right: 0;
-                top: config.vwpc(80);
-                left: config.vwpc(80);
-                ul {
-                    flex-direction: column;
-                    gap: config.vwpc(30);
-                }
-                li {
-                    @include config.fontPc(36);
+        @media (min-width: config.$RES_WID_SMALL01) or (min-aspect-ratio: 3/4) {
+            &.is-hidden {
+                pointer-events: all;
+                opacity: 1;
+                .area.menu {
+                    pointer-events: none;
+                    opacity: 0;
                 }
             }
-        }    
+            .block.contents {
+                .area.logo {
+                    opacity: 0;
+                }
+                .area.menu {
+                    position: absolute;
+                    padding-right: 0;
+                    top: config.vwpc(80);
+                    left: config.vwpc(80);
+                    ul {
+                        flex-direction: column;
+                        gap: config.vwpc(30);
+                    }
+                    li {
+                        @include config.fontPc(36);
+                    }
+                }
+            }
+        }
+        @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            &.is-hidden {
+                pointer-events: all;
+                opacity: 1;
+                .area.btn {
+                    pointer-events: none !important;
+                    opacity: 0 !important;
+                }
+            }
+            .block.contents {
+                .area.logo {
+                    opacity: 0;
+                }
+            }
+        }
     }
 
     .block.contents {
@@ -66,6 +88,16 @@
 
         .area.logo {
             padding: config.vwpc(20);
+
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: config.vwpc(220);
+                height: config.vwpc(80);
+                background-color: #CCC;
+            }
 
             span {
                 display: flex;
@@ -94,6 +126,8 @@
 
             width: config.vwsp(50);
             height: config.vwsp(36);
+
+            transition: opacity 0.3s ease;
 
             &.is-active {
                 span {
@@ -130,6 +164,7 @@
 
         .area.menu {
             padding-right: config.vwpc(20);
+            transition: opacity 0.3s ease;
             @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                 pointer-events: none;
                 opacity: 0;

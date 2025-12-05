@@ -6,9 +6,17 @@
     width: 100%;
     height: 100svh;
     box-sizing: border-box;
-    padding: config.vwpc(20);
     background-color: #FFF;
     @include config.fontPc(18);
+
+    &.is-scroll {
+         .area.scroll {
+            opacity: 0;
+         }
+         .area.lead {
+            opacity: 0;
+         }
+    }
     
     .block.contents {
         width: 100%;
@@ -16,15 +24,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #DFDFDF;
+        box-sizing: border-box;
 
-        border-radius: config.vwpc(16);
         .area.bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: config.vwpc(20);
+            left: config.vwpc(20);
+            width: calc(100% - #{config.vwpc(40)});
+            height: calc(100% - #{config.vwpc(40)});
             overflow: hidden;
             border-radius: config.vwpc(16);
             .item {
@@ -46,6 +53,46 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+        }
+        .area.scroll {
+            position: fixed;
+            top: config.vwpc(520);
+            left: config.vwpc(80);
+
+            transition: opacity 0.3s ease;
+
+            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                top: config.vwsp(300);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .text {
+                @include config.fontPc(16);
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    @include config.fontSp(16);
+                }
+            }
+        }
+        .area.lead {
+            position: fixed;
+            top: config.vwpc(300);
+            right: config.vwpc(80);
+
+            transition: opacity 0.3s ease;
+
+            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                top: config.vwsp(200);
+                right: 50%;
+                transform: translateX(50%);
+                text-align: center;
+                padding: 0 config.vwsp(20);
+            }
+            .text {
+                @include config.fontPc(16);
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    @include config.fontSp(10);
+                }
             }
         }
     }

@@ -13,7 +13,18 @@ function init(_g) {
 			start: "top top",
 			end: "bottom top", // 固定する距離
 			pin: true,    // ピン止め
-			scrub: true   // スクロール連動
+			scrub: true,   // スクロール連動
+		}
+	});
+
+	_g.gsap.to(target, {
+		scrollTrigger: {
+			trigger: contentsTarget,
+			start: "+40",
+			toggleClass: {
+				targets: target, 
+				className: "is-scroll"
+			}
 		}
 	});
 }
