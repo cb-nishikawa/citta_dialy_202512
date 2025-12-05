@@ -40,7 +40,11 @@ function init(_g) {
 				items.forEach((item, i) => {
 					item.classList.remove("is-active");
 				});
-			}	
+			},
+			toggleClass: {
+				targets: target, 
+				className: "is-enter"
+			},
 		}
 	});
 }

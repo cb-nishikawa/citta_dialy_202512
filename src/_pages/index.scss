@@ -4,3 +4,27 @@
 @forward "_learn/";
 @forward "_history/";
 @forward "_news/";
+
+
+.c-debugPageSet {
+    min-height: 400px;
+    padding: 100px 20px;
+    .title {
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    li {
+        font-size: 14px;
+    }
+    
+    
+}

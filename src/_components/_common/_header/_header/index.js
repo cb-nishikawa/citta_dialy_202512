@@ -13,6 +13,7 @@ function headerFunc(_g) {
 	header__hiddenChange(_g, target);
 	header__humbergerBtn(_g, target);
 	header__scrollHidden(_g, target);
+	header__mainvisualOver(_g, target);
 }
 
 function header__scrollHidden(_g, _tg) {
@@ -104,6 +105,9 @@ function header__colorChange(_g, _tg) {
 	
 	function init() {
 		const container = document.querySelector("[data-target='containerTarget']");
+
+		if (!container) return;
+
 		const headerRect = _tg.getBoundingClientRect();
 		const headerCenterY = headerRect.top + headerRect.height / 2;
 		const menuColors = container.querySelectorAll("[data-menuColor]");
@@ -141,6 +145,9 @@ function header__hiddenChange(_g, _tg) {
 
 	function init() {
 		const container = document.querySelector("[data-target='containerTarget']");
+
+		if (!container) return;
+
 		const headerRect = _tg.getBoundingClientRect();
 		const headerCenterY = headerRect.top + headerRect.height / 2;
 		const hiddenMenu = container.querySelectorAll("[data-hiddenMenu]");
@@ -163,6 +170,48 @@ function header__hiddenChange(_g, _tg) {
 			if (_g.console) console.log("is-hidden_important set to true");
 		} else if (!hidden && isNowHidden) {
 			_tg.classList.remove("is-hidden_important");
+			if (_g.console) console.log("is-hidden_important set to false");
+		}
+	}
+
+	window.addEventListener("scroll", init);
+	window.addEventListener("resize", init);
+
+	init();
+
+}
+
+
+
+function header__mainvisualOver(_g, _tg) {
+
+	function init() {
+		const container = document.querySelector("[data-target='containerTarget']");
+
+		if (!container) return;
+		
+		const headerRect = _tg.getBoundingClientRect();
+		const headerCenterY = headerRect.top + headerRect.height / 2;
+		const mainvisual = container.querySelectorAll("[data-target='topMainvisual01']");
+		let mv = false;
+
+		if (!mainvisual.length && !container) return;
+
+		mainvisual.forEach((el) => {
+			const rect = el.getBoundingClientRect();
+			if (headerCenterY >= rect.top && headerCenterY <= rect.bottom) {
+				mv = true;
+			} else {
+				mv = mv || false;
+			}
+		});
+
+		const isMv = _tg.classList.contains("is-mv");
+		if (mv && !isMv) {
+			_tg.classList.add("is-mv");
+			if (_g.console) console.log("is-mv set to true");
+		} else if (!mv && isMv) {
+			_tg.classList.remove("is-mv");
 			if (_g.console) console.log("is-hidden_important set to false");
 		}
 	}

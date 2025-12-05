@@ -32,6 +32,30 @@
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
     }
 
+    &.is-mv {
+        .block.contents {
+            .area.logo {
+                position: absolute;
+                top: config.vwpc(20);
+                right: config.vwpc(20);
+                padding: 0;
+            }
+            .area.menu {
+                position: absolute;
+                padding-right: 0;
+                top: config.vwpc(80);
+                left: config.vwpc(80);
+                ul {
+                    flex-direction: column;
+                    gap: config.vwpc(30);
+                }
+                li {
+                    @include config.fontPc(36);
+                }
+            }
+        }    
+    }
+
     .block.contents {
         display: flex;
         justify-content: space-between;

@@ -7,6 +7,9 @@ function init(_g) {
 
 	if (_g.console) console.log("___04_dialy loaded");
 
+	const leftArrow = target.querySelector("[data-target='leftArrow']");
+	const rightArrow = target.querySelector("[data-target='rightArrow']");
+
 	_g.gsap.to(contentsTarget, {
 		scrollTrigger: {
 			trigger: contentsTarget,   // ✅ pinする要素と同じにする
@@ -17,6 +20,19 @@ function init(_g) {
 			scrub: true,
 		}
 	});
+
+	const leftArrowClassCtrl = new _g.classController(["[data-leftArrowCtrl]"]);
+	const rightArrowClassCtrl = new _g.classController(["[data-rightArrowCtrl]"]);
+
+	leftArrow.addEventListener("click", () => {
+		leftArrowClassCtrl.order(["first", "second", "third"]);
+		if (_g.console) console.log("left arrow clicked");
+	});
+	rightArrow.addEventListener("click", () => {
+		rightArrowClassCtrl.order(["third", "second", "first"]);
+		if (_g.console) console.log("right arrow clicked");
+	});
+	
 }
 
 export { init };
