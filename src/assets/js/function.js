@@ -4,7 +4,7 @@ _g.console = true; // コンソールログ有効化
 
 import { _commonInit } from "../../_components/_common/";
 import { _layoutInit } from "../../_components/_layout/";
-import { _topInit } from "../../_components/_top/";
+import { _topInit } from "../../_pages/_top/";
 
 
 _commonInit(_g);

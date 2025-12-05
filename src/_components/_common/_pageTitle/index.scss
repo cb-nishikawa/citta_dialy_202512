@@ -1,0 +1,13 @@
+
+@use "../../../assets/scss/s_config" as config;
+
+.c-pageTitle01 {
+    padding: config.vwpc(200) 0 config.vwpc(160);
+    .title {
+        @include config.fontPc(140);
+    }
+    .text {
+        @include config.fontPc(24);
+    }
+}
+

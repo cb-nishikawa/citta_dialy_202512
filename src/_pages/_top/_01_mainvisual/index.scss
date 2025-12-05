@@ -1,0 +1,52 @@
+@use "../../../assets/scss/s_config" as config;
+
+.p-topMainvisual01 {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100svh;
+    box-sizing: border-box;
+    padding: config.vwpc(20);
+    background-color: #FFF;
+    @include config.fontPc(18);
+    
+    .block.contents {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #DFDFDF;
+
+        border-radius: config.vwpc(16);
+        .area.bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: config.vwpc(16);
+            .item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .item picture img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

@@ -50,11 +50,13 @@ $SITE_BG01: #FFF;
 // vwpc: PC用 vw変換
 @function vwpc($size) {
   // 768pxでのサイズ（SP基準で計算、必要なら調整）
-  $min-size: math.div($size * 768, 1400);
+  // $min-size: math.div($size * 768, 1400);
+  $min-size: math.div($size * 320, 1400);
   // 140pxでのサイズ（PC基準でそのまま）
   $max-size: $size;
   // clamp-calcで可変値を返す（数値のみ渡す）
-  @return clamp-calc($min-size, $max-size, 768, 1400);
+  // @return clamp-calc($min-size, $max-size, 768, 1400);
+  @return clamp-calc($min-size, $max-size, 320, 1400);
 }
 
 // fontSp: スマホ用フォント設定

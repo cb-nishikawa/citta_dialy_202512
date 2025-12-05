@@ -22,6 +22,19 @@ function init(_g) {
 			ease: "none",
 			scrollTrigger: {
 				trigger: bgArea,
+				start: "top bottom",
+				end: "top top",
+				toggleClass: {
+					targets: target, 
+					className: "is-enter"
+				},
+			},
+		});
+
+		_g.gsap.to(target, {
+			ease: "none",
+			scrollTrigger: {
+				trigger: bgArea,
 				start: "top top",
 				end: "bottom top",
 				pin: true,

@@ -87,7 +87,7 @@
                 }
             }
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 9/16) {
+            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                 pointer-events: auto;
                 opacity: 1;
             }
@@ -106,14 +106,14 @@
 
         .area.menu {
             padding-right: config.vwpc(20);
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 9/16) {
+            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                 pointer-events: none;
                 opacity: 0;
                 padding-right: 0;
             }
 
             &.is-active {
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 9/16) {
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     pointer-events: auto;
                     opacity: 1;
                 }
@@ -121,7 +121,7 @@
             ul {
                 display: flex;
                 gap: config.vwpc(30);
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 9/16) {
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
@@ -139,7 +139,7 @@
             }
             li {
                 @include config.fontPc(16);
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 9/16) {
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     @include config.fontSp(16);
                 }
             }
@@ -148,7 +148,7 @@
                 text-decoration: none;
                 transition: color 0.3s ease;
 
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 9/16) {
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     color: #342622;
                 }
             }

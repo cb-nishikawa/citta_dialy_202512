@@ -1,6 +1,9 @@
 <%- include('./_components/_common/_header/index.ejs') %>
-<p>concept</p>
-<div class="l-bgWrapper01" data-target="bgWrapper01">
-	<%- include('./_components/_top/_09_news/index.ejs') %>
-</div>
+<%- include('./_components/_common/_pageTitle/index.ejs', { title: "CONCEPT", text: "初めて１年間、続いた手帳" }) %>
+
+	<%- include('./_pages/_concept/_01_about/index.ejs') %>
+
+	<div class="l-bgWrapper01" data-target="bgWrapper01">
+		<%- include('./_pages/_concept/_02_advantages/index.ejs') %>
+	</div>
 <%- include('./_components/_common/_footer/index.ejs') %>
