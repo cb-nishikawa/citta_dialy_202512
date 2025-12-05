@@ -1,10 +1,10 @@
 
 
 function init(_g) {
-	const target = document.querySelector("[data-target='topConcept01']");
+	const target = document.querySelector("[data-target='historyHistory01']");
 
 	if (!target) return;
-	if (_g.console) console.log("___02_concept loaded");
+	if (_g.console) console.log("__01_history loaded");
 
 	const scrollTarget = target.querySelector("[data-target='scrollTarget']");
 	const itemsTarget = scrollTarget.querySelector("[data-target='itemsTarget']");

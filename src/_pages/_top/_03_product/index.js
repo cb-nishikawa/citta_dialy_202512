@@ -4,7 +4,7 @@ function init(_g) {
 	const target = document.querySelector("[data-target='topProduct01']");
 
 	if (!target) return;
-	if (_g.console) console.log("__03_product loaded");
+	if (_g.console) console.log("___03_product loaded");
 
 	const leftTarget = target.querySelector("[data-target='leftTarget']");
 	const rightTarget = target.querySelector("[data-target='rightTarget']");

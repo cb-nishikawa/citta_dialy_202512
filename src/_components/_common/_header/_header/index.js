@@ -1,13 +1,13 @@
 
 function init(_g) {
-	if (_g.console) console.log("__header loaded");
+	if (_g.console) console.log("___header loaded");
 	headerFunc(_g);
 }
 
 function headerFunc(_g) {
 	const target = document.querySelector("[data-target='globalHeader01']");
 	if (!target) return;
-	if (_g.console) console.log("__headerFunc loaded");
+	if (_g.console) console.log("____headerFunc loaded");
 
 	header__colorChange(_g, target);
 	header__hiddenChange(_g, target);

@@ -4,7 +4,7 @@ import { init as _sideFixed } from "./_sideFixed/";
 import { init as _header } from "./_header/";
 
 
-function _commonInit(_g) {
+function init(_g) {
 	if (_g.console) console.log("_commonInit loaded");
 	_image(_g);
 	_header(_g);
@@ -12,4 +12,4 @@ function _commonInit(_g) {
 }
 
 // ここから外部用エクスポート
-export { _commonInit };
+export { init };

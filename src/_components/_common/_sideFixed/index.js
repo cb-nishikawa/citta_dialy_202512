@@ -5,7 +5,7 @@ function init(_g) {
 	const fixedTarget = target.querySelector("[data-target='fixedTarget']");
 	const contentsTarget = target.querySelector("[data-target='contentsTarget']");
 
-	if (_g.console) console.log("__09_news loaded");
+	if (_g.console) console.log("__sideFixed loaded");
 
 	_g.gsap.to(fixedTarget, {
 		scrollTrigger: {

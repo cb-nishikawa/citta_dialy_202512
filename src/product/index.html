@@ -1,8 +1,9 @@
 <%- include('./_components/_common/_header/index.ejs') %>
-<%- include('./_components/_common/_pageTitle/index.ejs', { title: "PRODUCT", text: "究極にシンプルでずっと使いたくなる作り" }) %>
-
-	<div class="l-bgWrapper01" data-target="bgWrapper01">
-		<%- include('./_pages/_product/_01_products/index.ejs') %>
-		<%- include('./_pages/_product/_02_material/index.ejs') %>
+	<div class="l-mainContainer" data-target="containerTarget" data-page="product">
+		<%- include('./_components/_common/_pageTitle/index.ejs', { title: "PRODUCT", text: "究極にシンプルでずっと使いたくなる作り" }) %>
+		<div class="l-bgWrapper01" data-target="bgWrapper01">
+			<%- include('./_pages/_product/_01_products/index.ejs') %>
+			<%- include('./_pages/_product/_02_material/index.ejs') %>
+		</div>
 	</div>
 <%- include('./_components/_common/_footer/index.ejs') %>

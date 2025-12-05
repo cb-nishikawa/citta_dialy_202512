@@ -5,7 +5,7 @@ function init(_g) {
 	const scrollTarget = target.querySelector("[data-target='scrollTarget']");
 	const contentsTarget = target.querySelector("[data-target='contentsTarget']");
 
-	if (_g.console) console.log("__04_dialy loaded");
+	if (_g.console) console.log("___04_dialy loaded");
 
 	_g.gsap.to(contentsTarget, {
 		scrollTrigger: {
