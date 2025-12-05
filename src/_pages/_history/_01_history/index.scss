@@ -1,12 +1,27 @@
 @use "../../../assets/scss/s_config" as config;
 
 .p-historyHistory01 {
+    overflow: hidden;
     position: relative;
     z-index: 100;
+    border-top-left-radius: config.vwpc(100);
+    border-top-right-radius: config.vwpc(100);
+    transition: border-radius 1.2s linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
+
     &.is-end  {
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.3s ease;
+    }
+
+    &.is-enter {
+        border-top-left-radius: config.vwpc(0);
+        border-top-right-radius: config.vwpc(0);
+
+        .content {
+            border-top-left-radius: config.vwpc(0) !important;
+            border-top-right-radius: config.vwpc(0) !important;
+        }
     }
     
     .block.scroll {
@@ -48,6 +63,7 @@
                     }
                 }
                 .content {
+                    overflow: hidden;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -57,6 +73,10 @@
                     height: 100svh;
                     opacity: 0;
                     transition: opacity 0.3s ease;
+
+                    border-top-left-radius: config.vwpc(100);
+                    border-top-right-radius: config.vwpc(100);
+                    transition: border-radius 1.2s linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
 
                     .bg {
                         position: absolute;

@@ -31,18 +31,37 @@ function init(_g) {
 				});
 			},
 			onLeave: () => {
-				target.classList.add("is-end");
+				// target.classList.add("is-end");
 			},
 			onEnterBack: () => {
-				target.classList.remove("is-end");
+				// target.classList.remove("is-end");
 			},
 			onLeaveBack: () => {
 				items.forEach((item, i) => {
 					item.classList.remove("is-active");
 				});
-			}	
+			},
+			toggleClass: {
+				targets: target, 
+				className: "is-enter"
+			},
 		}
 	});
+
+	// _g.gsap.to(itemsTarget, {
+	// 	ease: "none",
+	// 	scrollTrigger: {
+	// 		trigger: itemsTarget,
+	// 		start: "top top",
+	// 		end: "bottom top",
+	// 		pin: true,
+	// 		scrub: true,
+	// 		toggleClass: {
+	// 			targets: target, 
+	// 			className: "is-active"
+	// 		},
+	// 	},
+	// });
 }
 
 // ここから外部用エクスポート
