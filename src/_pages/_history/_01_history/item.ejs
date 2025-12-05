@@ -1,0 +1,42 @@
+<div class="item" data-target="item">
+    <div class="content">
+        <div class="bg">
+            <%- include('../../../_components/_common/_image/index.ejs', { 
+                imagePath: locals.url,
+                alt: '',
+                sizes: '100vw',
+                baseWidth: 2880
+            }) %>
+            <%- include('../../../_components/_common/_image/index.ejs', { 
+                imagePath: '/assets/image/top/top_concept_overlay.png',
+                alt: '',
+                sizes: '30vw',
+                baseWidth: 2880
+            }) %>
+        </div>
+        <div class="left">
+            <% if (year) { %>
+                <h3 class="year"><%- year %></h3>
+            <% } %>
+            <p class="lead"><%- lead %></p>
+            <div class="textBox">
+                <% if (Array.isArray(texts)) { %>
+                    <% texts.forEach(function(text) { %>
+                        <p class="text"><%- text %></p>
+                    <% }); %>
+                <% } %>
+            </div>
+        </div>
+        <div class="right">
+            <div class="image">
+                <%- include('../../../_components/_common/_image/index.ejs', { 
+                    imagePath: locals.url,
+                    alt: '',
+                    sizes: '100vw',
+                    baseWidth: 2880
+                }) %>
+            </div>
+        </div>
+    </div>
+    
+</div>

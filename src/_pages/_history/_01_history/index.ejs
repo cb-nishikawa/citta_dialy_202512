@@ -2,101 +2,143 @@
 <section class="p-historyHistory01" data-target="historyHistory01" data-menuColor="#FFFFFF">
     <div class="block scroll" data-target="scrollTarget">
         <div class="area items" data-target="itemsTarget">
-            <div class="item" data-target="item">
-                <div class="content">
-                    <div class="bg">
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_bg01.png',
-                            alt: '',
-                            sizes: '100vw',
-                            baseWidth: 2880
-                        }) %>
-                       <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_overlay.png',
-                            alt: '',
-                            sizes: '30vw',
-                            baseWih: 2880
-                        }) %>
-                    </div>
-                    <p>アイテム1</p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <div class="content">
-                    <div class="bg">
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_bg02.png',
-                            alt: '',
-                            sizes: '100vw',
-                            baseWidth: 2880
-                        }) %>
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_overlay.png',
-                            alt: '',
-                            sizes: '30vw',
-                            baseWidth: 2880
-                        }) %>
-                    </div>
-                    <p>アイテム2</p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <div class="content">
-                    <div class="bg">
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_bg03.png',
-                            alt: '',
-                            sizes: '100vw',
-                            baseWidth: 2880
-                        }) %>
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_overlay.png',
-                            alt: '',
-                            sizes: '30vw',
-                            baseWidth: 2880
-                        }) %>
-                    </div>
-                    <p>アイテム3</p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <div class="content">
-                    <div class="bg">
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_bg04.png',
-                            alt: '',
-                            sizes: '100vw',
-                            baseWidth: 2880
-                        }) %>
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_overlay.png',
-                            alt: '',
-                            sizes: '30vw',
-                            baseWidth: 2880
-                        }) %>
-                    </div>
-                    <p>アイテム4</p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <div class="content">
-                    <div class="bg">
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_bg05.png',
-                            alt: '',
-                            sizes: '100vw',
-                            baseWidth: 2880
-                        }) %>
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
-                            imagePath: '/assets/image/top/top_concept_overlay.png',
-                            alt: '',
-                            sizes: '30vw',
-                            baseWidth: 2880
-                        }) %>
-                    </div>
-                    <p>アイテム5</p>
-                </div>
-            </div>
+            <%- include('./item.ejs', {
+                year: '2012',
+                lead: '手描きの手帳',
+                texts: [
+                    '始まりはこの一冊から。３６５日手書きの手帳でした。',
+                    '「理想の手帳が売ってないなら作るしかない」とノートに手で書いて手帳を作ったのがCITTA手帳の始まりです。',
+                    '毎日カフェに入り浸り、飽きもせず３時間ほど手帳を書く姿に周りに驚かれていました。カフェのオーナーに「いつかそれが商品になったら、最初は手書きだったのにね〜って笑い話になるよ」と言われながら。'
+                ],
+                url: '/assets/image/top/top_concept_bg01.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2014',
+                lead: '記念すべき初版の手帳',
+                texts: [
+                    'CITTA手帳記念すべき初版の手帳。',
+                    'こちらのリングノートタイプでした。想いが高じて制作に踏み切ったのがこの手帳。',
+                    '当初、予算もなくただサンプルとして５冊だけ印刷会社に依頼したもの。SNSにアップすると、「私もそれ欲しいです！」と次々と声をかけられ増刷し２００冊制作。'
+                ],
+                url: '/assets/image/top/top_concept_bg02.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2015',
+                lead: '初めての手帳製本1000冊に',
+                texts: [
+                    '「製本タイプの手帳がいい」とお客様のリクエストにお応えして作ったもの。',
+                    '製本にするには1000ロットから制作することが条件でした。昨年が２００冊しか売れていないのに「いけるんじゃないか」というただの勘を頼りに１０００冊制作してしまう。',
+                    '当初は色を選ぶ余裕もなく、このブラックのカラーのみの展開でした。当時から外見よりも中身にこだわり使っていました。Amazonで売りだしたのもこの頃からです。'
+                ],
+                url: '/assets/image/top/top_concept_bg03.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2016',
+                lead: '新色 白色登場',
+                texts: [
+                    '黒と白が登場。',
+                    '女性が持ちやすい色を考えた時に目に留まったのがこの白。当時手帳で白は珍しく、製造会社からは「汚れがつくのでクレームが出やすい色ですよ」と言われたもの。それでも、「真っ白な白が可愛いから」とこの白にこだわり作ったものです。',
+                ],
+                url: '/assets/image/top/top_concept_bg04.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2017',
+                lead: '新色 ネイビー登場',
+                texts: [
+                    '大人っぽいネイビーが登場。',
+                    'ついに３色展開。黒と白が来たら次に考えたのがネイビー。男女ともに手に取りやすいことを考えてこの色に。CITTA手帳に「大人っぽさ」「エレガント」「上質」を意識して作るようになりました。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2018',
+                lead: '初めての赤手帳',
+                texts: [
+                    '女性が好きな大人の赤色が登場。',
+                    'CITTA手帳を使う女性がどんどん飛躍するイメージが出来て、本当に広がっていくにはどうしたらいいか毎日考えていました。',
+                    'CITTA手帳術のノウハウを書籍にしたい！と『未来を予約する手帳術』かんき出版さんより出版させていただきました。その本の影響でそれまで５千冊だった手帳が一気に２万部が完売。多くの人に伝わったことを本当に嬉しく思っています。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2019',
+                lead: '一気に増えたカラーバリエーション',
+                texts: [
+                    '一気に増えたカラーバリエーション。',
+                    '持っているだけでウキウキするカラー展開に。お客様のご要望で制作した春ダイヤリーも好調になり「働く女性」「専業主婦」「ワーキングマザー」とどんな女性にも幅広く支持されるように。',
+                    'おかげさまで毎年飛躍する手帳になったCITTA手帳。これもお客様に愛され続けたからであると自負しております。CITTA手帳は、「あなたの時間を取り戻す手帳」としてこれからも成長し続けます。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2020',
+                lead: 'オンラインショップオープン',
+                texts: [
+                    'オンラインショップが立ち上がり、CITTA手帳以外の商品(オリジナル手帳カバー、CITTAノート)が新たに販売することになりました。',
+                    'セット販売を行うことで、CITTA手帳を使いながらCITTAノートを開く。オリジナル手帳カバーとCITTA手帳のカラーコーディネートを楽しむなど、カスタマイズすることで各々の手帳の使い方の幅が広がりました。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2021',
+                lead: 'B6サイズが登場',
+                texts: [
+                    'いよいよ待望のCITTA手帳 B6サイズが登場します。',
+                    '一回り小さく、可愛いサイズでデビュー。(B6サイズに販売は、全国の書店とオンラインショップでお買い求めできます)カラーを心機一転し、新しい色を3色導入しました。',
+                    '新色は全てマットな質感で落ち着いた色合いです。もちろん定番のピュアホワイト、インディゴネイビーは今まで通りの質感で。去年人気だったミモザイエローは新たにB6サイズで登場しました。どのカラーもしっくり馴染む手触りが一年間あなたに寄り添ってくれます。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2022',
+                lead: 'CITTA手帳がついに世界へ',
+                texts: [
+                    'CITTA手帳がついに世界へ！',
+                    '海外のお客様からお問い合わせを頂くことが増えたため、英語版の販売を決定しました。記念すべき第一弾のカラーは気分が華やぐマーベラスピンクです。',
+                    '今年の日本語版の新色は高貴な雰囲気のあるマンダリンオレンジ。また今年はウィークリーの仕様を5時始まりから4時始まりに変更し、24時間可視化できるよう改良致しました。CITTA手帳が日本の女性のみならず、世界中の方がやりたいこと・夢を叶えるお手伝いが出来れば嬉しいです。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2023',
+                lead: 'CITTA手帳がハローキティとコラボ',
+                texts: [
+                    'サンリオの人気キャラクター・ハローキティが表紙を飾った、2023-24CITADIARY（3月始まり手帳）。',
+                    'CITTA手帳の機能性にハローキティの可愛らしさが加わって、幅広い層から注目を集めました。',
+                    'このハローキティとのコラボレーションは、CITTA手帳の新たな魅力を引き出すきっかけとなり、ブランドの認知拡大にも大きく貢献することができました。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '',
+                lead: 'CITTA×HUKUROコラボ手帳カバー販売',
+                texts: [
+                    'オリジナルレザーアイテムブランド「HUKURO」とのコラボでは、本革の手帳カバーを発売しました。',
+                    '使われているのは、HUKUROオリジナルの牛革“シールドレザー”。ラグジュアリーな素材感とカラフルなカラー展開が魅力で、見た目も手触りも特別感たっぷり。',
+                    'CITTA手帳と組み合わせることで、毎日の手帳タイムがさらに気分の上がるものになりました。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2024',
+                lead: 'CITTAMONTHLY B5サイズ テスト販売',
+                texts: [
+                    'CITTA MONTHLY B5サイズは、パリ旅行中の何気ないひと言から生まれました。',
+                    '「もっと大きいサイズがあったらいいのに」という声にピンときて、自由に書けるマンスリー手帳として誕生。',
+                    '年表やマンスリーページはそのままに、ウィークリーやワクワクリストを省いたシンプルな構成が特徴。初回はテスト販売でしたが、多くの反響をいただき、ついに通年販売が実現。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
+            <%- include('./item.ejs', {
+                year: '2025',
+                lead: 'タイトルタイトルタイトル',
+                texts: [
+                    'CITTA LIFE NOTEは、「人生でやり残したことはないか？」と自分自身に問いかけながら生まれたワークノートです。',
+                    '40代後半を迎え、人生の折り返しを意識しはじめた頃、Instagramで活躍する@white_room_3さんとの対話をきっかけに、心の奥にある想いや夢に気づく“問いかけ”の大切さを再認識しました。',
+                    'これまで実践してきたワークを詰め込んだ、CITTAの集大成。残りの人生をあなたらしく輝かせるヒントがこのノートにあります。',
+                ],
+                url: '/assets/image/top/top_concept_bg05.png'
+            }) %>
         </div>
     </div>
 </section>
