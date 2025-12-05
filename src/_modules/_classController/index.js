@@ -8,9 +8,37 @@
  * ctrl.order(["first", "second", "third"]); // 指定クラスのみを順番に付与
  * ctrl.remove("active");       // クラス削除
  * ctrl.release();              // メモリ解放
+ * ctrl.select({select:["aaa", "bbb"], all:["aaa", "bbb", "ccc", "ddd"]}); // 指定クラスのみを抽出付与
  */
 
 class classController {
+
+    /**
+     * 指定クラスのみ付与し、allで指定したその他のクラスは削除する
+     * @param {Object} param0 - { select: string[]|Set<string>, all: string[]|Set<string> }
+     */
+    select({ select = [], all = [] }) {
+        const selectList = Array.isArray(select)
+            ? select
+            : (select instanceof Set ? Array.from(select) : [select]);
+        const allList = Array.isArray(all)
+            ? all
+            : (all instanceof Set ? Array.from(all) : [all]);
+        this.targets.forEach(target => {
+            // allで指定したクラスを全て削除
+            allList.forEach(cls => {
+                if (cls && typeof cls === 'string') {
+                    target.classList.remove(cls);
+                }
+            });
+            // selectで指定したクラスのみ付与
+            selectList.forEach(cls => {
+                if (cls && typeof cls === 'string') {
+                    target.classList.add(cls);
+                }
+            });
+        });
+    }
     /**
      * 指定したクラス配列で順番に切り替える（1つだけ付与、他は消す）
      * @param {string[]|Set<string>} classes - 付与するクラス名の配列またはSet

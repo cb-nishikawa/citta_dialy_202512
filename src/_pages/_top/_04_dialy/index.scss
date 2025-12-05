@@ -7,7 +7,6 @@
     min-height: 1500px;
     padding: config.vwpc(20);
     box-sizing: border-box;
-    
 
     .block.contents {
         position: relative;
@@ -20,6 +19,8 @@
         background-color: #F5F1E2;
         border-radius: config.vwpc(60);
         box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+
+        
     }
     .area.title {
         position: absolute;
@@ -33,23 +34,148 @@
             @include config.fontPc(16);
         }
     }
+    .area.image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 70svh;
+        aspect-ratio: 3 / 4;
+        transform: translate(-50%, -50%);
+
+        &.first .first {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.second .second {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.third .third {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.fourth .fourth {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.fifth .fifth {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.color01 .color01 {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.color02 .color02 {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.color03 .color03 {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.color04 .color04 {
+            pointer-events: all;
+            opacity: 1;
+        }
+        &.color05 .color05 {
+            pointer-events: all;
+            opacity: 1;
+        }
+
+        .image {
+            pointer-events: none;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #CCC;
+            transition: opacity 0.5s ease;
+            
+            .color01 {
+                background-color: #F00;
+            }
+            .color02 {
+                background-color: #0F0;
+            }
+            .color03 {
+                background-color: #00F;
+            }
+            .color04 {
+                background-color: #FF0;
+            }
+            .color05 {
+                background-color: #0FF;
+            }
+        }
+    }
     .area.contents {
         display: flex;
         gap: config.vwpc(20);
         position: absolute;
         bottom: 0;
         left: 0;
+        z-index: 1000;
 
         width: 100%;
+        padding: config.vwpc(20) config.vwpc(60);
+        box-sizing: border-box;
+
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 0;
+        //     z-index: 0;
+        //     width: 100%;
+        //     height: 100%;
+
+        //     background: rgba(245, 241, 226, 0.1);
+        //     backdrop-filter: blur(2px);
+        // }
 
         .textBox {
             flex: 1;
+            position: relative;
+            z-index: 10;
             .text {
+                pointer-events: none;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: opacity 0.5s ease;
                 @include config.fontPc(16);
+            }
+            &.first .first {
+                pointer-events: all;
+                opacity: 1;
+            }
+            &.second .second {
+                pointer-events: all;
+                opacity: 1;
+            }
+            &.third .third {
+                pointer-events: all;
+                opacity: 1;
+            }
+            &.fourth .fourth {
+                pointer-events: all;
+                opacity: 1;
+            }
+            &.fifth .fifth {
+                pointer-events: all;
+                opacity: 1;
             }
         }
         .btnBox {
             display: flex;
+            position: relative;
+            z-index: 10;
             background-color: #FFF;
             padding: config.vwpc(20);
             .price {
