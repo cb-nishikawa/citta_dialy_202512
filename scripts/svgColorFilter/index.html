@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS フィルタージェネレーター</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <table>
+    <tr valign="top">
+      <td width="50%">
+        <fieldset>
+          <p>
+            <label>対象のカラー</label>
+            <input class="target" type="text" placeholder="カラーのHEX値" value="#00a4d6"/>
+          </p>
+          <button class="execute">フィルターを計算</button>
+        </fieldset>
+
+        <p>実際のピクセル（<code>background-color</code> で色指定）：</p>
+        <div class="pixel realPixel"></div>
+
+        <p>フィルター適用後のピクセル（<code>filter</code> で色指定）：</p>
+        <div class="pixel filterPixel"></div>
+
+        <p class="filterDetail"></p>
+        <p class="lossDetail"></p>
+      </td>
+
+      <td>
+        <p>
+          このコードを正しく動作させるためには、元のアイコンの色が「黒」である必要があります。
+          もし黒以外の場合は、filter プロパティの先頭に
+          <code>brightness(0) saturate(100%)</code>
+          を追加することで、最初に黒へ変換できます。
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>

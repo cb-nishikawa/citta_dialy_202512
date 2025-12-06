@@ -1,6 +1,180 @@
 @use "../../../../assets/scss/s_config" as config;
 
 
+$LOGO_WIDTH: 220;
+$LOGO_WIDTH_SP: 100;
+$MENU_COLOR: config.$DEFAULT_COLOR01;
+$BACKGROUND_GRADIENT: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+$RESPONSIVE_SIZE: config.$RES_WID_SMALL01;
+$RESPONSIVE_ASPECT: "3/4";
+
+@mixin SP {@media (max-width: $RESPONSIVE_SIZE) and (max-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
+@mixin PC {@media (min-width: $RESPONSIVE_SIZE) or (min-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
+
+
+// ロゴ
+// ----------------------------------------------------
+%logo {
+
+    width: config.vwpc($LOGO_WIDTH);
+
+    @include SP {
+        width: config.vwsp($LOGO_WIDTH_SP);
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    &_isMv_PC {
+        opacity: 0;
+    }
+
+    &_colorChange {
+        img {
+            filter: invert(100%) sepia(0%) saturate(7461%) hue-rotate(72deg) brightness(99%) contrast(99%);
+        }
+    }
+}
+
+// グローバルナビメニュー
+// ----------------------------------------------------
+%menu {
+    padding-right: config.vwpc(20);
+    transition: opacity 0.3s ease;
+    @include SP {
+        @include config.hidden;
+        padding-right: 0;
+    }
+
+    &.is-active {
+        @include SP {
+            @include config.visible;
+        }
+    }
+
+    ul {
+        display: flex;
+        gap: config.vwpc(30);
+        @include SP {
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            gap: config.vwsp(30);
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            
+            background-color: #FFF;
+        }
+    }
+    li {
+        color: var(--menu-color, $MENU_COLOR);
+        font-family: config.$DF_EN_FONT;
+        font-weight: 200;
+        @include config.fontPc(16);
+        line-height: 1.0;
+        letter-spacing: 0em;
+        
+        @include SP {
+            @include config.fontSp(16);
+        }
+    }
+    a {
+        transition: color 0.3s ease;
+
+        @include SP {
+            color: $MENU_COLOR;
+        }
+    }
+
+    &_isMv_PC {
+        @include PC {
+            position: absolute;
+            padding-right: 0;
+            top: config.vwpc(80);
+            left: config.vwpc(80);
+            ul {
+                flex-direction: column;
+                gap: config.vwpc(30);
+            }
+            li {
+                color: config.$DEFAULT_COLOR02 !important;
+                font-weight: 400;
+                @include config.fontPc(36);
+                letter-spacing: 0.05em;
+            }
+        }
+    }
+}
+
+
+// メニューボタン
+// ----------------------------------------------------
+%menuBtn {
+    @include config.hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: fixed;
+    top: config.vwsp(20);
+    right: config.vwsp(20);
+    z-index: 9900;
+
+    width: config.vwsp(40);
+    height: config.vwsp(30);
+
+    transition: opacity 0.3s ease;
+
+    @include SP {
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    &.is-active {
+        span {
+            &:nth-child(1) {
+                transform: translateY(config.vwsp(14)) rotate(45deg);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: translateY(config.vwsp(-14)) rotate(-45deg);
+            }
+        }
+    }
+
+    span {
+        display: block;
+        width: 100%;
+        height: config.vwsp(2);
+        background-color: var(--menu-color, $MENU_COLOR);
+        opacity: 0.8;
+    }
+
+    &_colorChange {
+        span {
+            background-color: #FFF;
+        }
+    }
+}
+
+
+
 .c-globalHeader01 {
     position: fixed;
     top: 0;
@@ -9,16 +183,6 @@
     width: 100%;
     box-sizing: border-box;
     transition: opacity 0.5s ease;
-
-    &.is-hidden {
-        pointer-events: none;
-        opacity: 0;
-    }
-
-    &.is-hidden_important {
-        pointer-events: none !important;
-        opacity: 0 !important;
-    }
 
     &::after {
         content: "";
@@ -29,187 +193,83 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+        background: $BACKGROUND_GRADIENT;
     }
 
-    &.is-mv {
-        @media (min-width: config.$RES_WID_SMALL01) or (min-aspect-ratio: 3/4) {
-            &.is-hidden {
-                pointer-events: all;
-                opacity: 1;
-                .area.menu {
-                    pointer-events: none;
-                    opacity: 0;
-                }
-            }
-            .block.contents {
-                .area.logo {
-                    opacity: 0;
-                }
-                .area.menu {
-                    position: absolute;
-                    padding-right: 0;
-                    top: config.vwpc(80);
-                    left: config.vwpc(80);
-                    ul {
-                        flex-direction: column;
-                        gap: config.vwpc(30);
-                    }
-                    li {
-                        @include config.fontPc(36);
-                    }
-                }
-            }
-        }
-        @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-            &.is-hidden {
-                pointer-events: all;
-                opacity: 1;
-                .area.btn {
-                    pointer-events: none !important;
-                    opacity: 0 !important;
-                }
-            }
-            .block.contents {
-                .area.logo {
-                    opacity: 0;
-                }
-            }
-        }
-    }
-
-    .block.contents {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
+    &>.componentWrapper {
         position: relative;
         z-index: 100;
+        padding-top: config.vwpc(60);
+        padding-bottom: config.vwpc(20);
+        @include config.contentsWidth();
 
-        .area.logo {
-            padding: config.vwpc(20);
-
-            span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                width: config.vwpc(220);
-                height: config.vwpc(80);
-                background-color: #CCC;
-            }
-
-            span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                width: config.vwpc(220);
-                height: config.vwpc(80);
-                background-color: #CCC;
-            }
-            
+        @include SP {
+            padding-top: config.vwsp(20);
+            padding-bottom: config.vwsp(10);
         }
 
-        .area.btn {
-            pointer-events: none;
-            opacity: 0;
 
+        &>.block.contents {
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
+            align-items: center;
 
-            position: absolute;
-            top: config.vwsp(20);
-            right: config.vwsp(20);
+            position: relative;
             z-index: 100;
 
-            width: config.vwsp(50);
-            height: config.vwsp(36);
-
-            transition: opacity 0.3s ease;
-
-            &.is-active {
-                span {
-                    background-color: #342622;
-
-                    &:nth-child(1) {
-                        transform: translateY(config.vwsp(17)) rotate(45deg);
-                    }
-                    &:nth-child(2) {
-                        opacity: 0;
-                    }
-                    &:nth-child(3) {
-                        transform: translateY(config.vwsp(-17)) rotate(-45deg);
-                    }
-                }
+            @include SP {
+                justify-content: center
             }
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                pointer-events: auto;
-                opacity: 1;
+            &>.area.logo {
+                @extend %logo;
             }
-            
-            
 
-            span {
-                display: block;
-                width: 100%;
-                height: config.vwsp(3);
-                background-color: var(--menu-color, #342622);
-                margin-right: config.vwsp(20);
+            &>.area.btn {
+                @extend %menuBtn;
+                
             }
-            
+
+            &>.area.menu {
+                @extend %menu;
+            }
         }
+    }
 
-        .area.menu {
-            padding-right: config.vwpc(20);
-            transition: opacity 0.3s ease;
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                pointer-events: none;
-                opacity: 0;
-                padding-right: 0;
+
+    // スクロール時に非表示
+    &.is-hidden {
+        @include config.hidden;
+    }
+
+    // data-importantHiddenにオーバーレイしているとき
+    &.is-hidden_important {
+        @include config.hidden(true);
+    }
+
+    // メインビジュアルにオーバーレイしているとき
+    &.is-mv {
+        &>.componentWrapper {
+            max-width: 100%;
+            @include PC {
+                padding: 0;
             }
-
-            &.is-active {
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    pointer-events: auto;
-                    opacity: 1;
+            &>.block.contents {
+                &>.area.logo {
+                    @extend %logo_isMv_PC;
+                }
+                &>.area.menu {
+                    @extend %menu_isMv_PC;
                 }
             }
-            ul {
-                display: flex;
-                gap: config.vwpc(30);
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
+        }
+    }
 
-                    gap: config.vwsp(30);
-
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100vh;
-                    
-                    background-color: #FFF;
-                }
-            }
-            li {
-                @include config.fontPc(16);
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    @include config.fontSp(16);
-                }
-            }
-            a {
-                color: var(--menu-color, #342622);
-                text-decoration: none;
-                transition: color 0.3s ease;
-
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    color: #342622;
-                }
+    // data-target='containerTarget']にオーバーレイしているとき
+    &.is-colorChange {
+        .block.contents {
+            .area.logo {
+                @extend %logo_colorChange;
             }
         }
     }

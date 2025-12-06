@@ -9,6 +9,7 @@
     background-color: #FFF;
     @include config.fontPc(18);
 
+
     &.is-scroll {
          .area.scroll {
             opacity: 0;
@@ -19,12 +20,16 @@
     }
     
     .block.contents {
-        width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
+
+        width: 100%;
+        height: 100%;
+        
+        // @include config.contentsWidth();
+        // padding: 0;
 
         .area.bg {
             position: absolute;
@@ -34,6 +39,14 @@
             height: calc(100% - #{config.vwpc(40)});
             overflow: hidden;
             border-radius: config.vwpc(16);
+
+            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                top: config.vwsp(5);
+                left: config.vwsp(5);
+                width: calc(100% - #{config.vwsp(10)});
+                height: calc(100% - #{config.vwsp(10)});
+                border-radius: config.vwsp(10);
+            }
             .item {
                 position: absolute;
                 top: 0;
@@ -63,12 +76,17 @@
             transition: opacity 0.3s ease;
 
             @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                top: config.vwsp(300);
+                top: config.vwsp(280);
                 left: 50%;
                 transform: translateX(-50%);
             }
             .text {
+                color: config.$DEFAULT_COLOR02;
+                font-family: config.$DF_EN_FONT;
                 @include config.fontPc(16);
+                font-weight: 400;
+                line-height: 1.0;
+                letter-spacing: 0.05em;
                 @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     @include config.fontSp(16);
                 }
@@ -76,20 +94,36 @@
         }
         .area.lead {
             position: fixed;
-            top: config.vwpc(300);
-            right: config.vwpc(80);
+            top: config.vwpc(160);
+            right: config.vwpc(120);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: config.vwpc(40);
 
             transition: opacity 0.3s ease;
 
             @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                top: config.vwsp(200);
+                top: config.vwsp(100);
                 right: 50%;
                 transform: translateX(50%);
-                text-align: center;
-                padding: 0 config.vwsp(20);
+            }
+
+            .logo {
+                width: config.vwpc(430);
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    width: config.vwsp(200);
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
             }
             .text {
                 @include config.fontPc(16);
+                text-align: center;
+
                 @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     @include config.fontSp(10);
                 }

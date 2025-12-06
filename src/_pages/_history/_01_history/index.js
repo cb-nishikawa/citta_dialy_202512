@@ -48,20 +48,18 @@ function init(_g) {
 		}
 	});
 
-	// _g.gsap.to(itemsTarget, {
-	// 	ease: "none",
-	// 	scrollTrigger: {
-	// 		trigger: itemsTarget,
-	// 		start: "top top",
-	// 		end: "bottom top",
-	// 		pin: true,
-	// 		scrub: true,
-	// 		toggleClass: {
-	// 			targets: target, 
-	// 			className: "is-active"
-	// 		},
-	// 	},
-	// });
+	_g.gsap.to(itemsTarget, {
+		ease: "none",
+		scrollTrigger: {
+			trigger: itemsTarget,
+			start: "top center",
+			end: "bottom top",
+			toggleClass: {
+				targets: target, 
+				className: "is-active"
+			},
+		},
+	});
 }
 
 // ここから外部用エクスポート

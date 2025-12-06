@@ -81,6 +81,7 @@
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-end;
+        gap: config.vwpc(80);
         width: calc(100% - calc(70svh * (560 / 700)) - config.vwpc(60));
         padding: 100svh 0;
 
@@ -91,7 +92,6 @@
         .item {
             width: 100%;
             padding: config.vwpc(80) 0;
-            background-color: #DFDFDF;
 
             @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                 opacity: 1 !important;

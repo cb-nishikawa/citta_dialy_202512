@@ -1,0 +1,96 @@
+// Montserrat
+// 100: Thin
+// 200: Extra Light
+// 300: Light
+// 400: Regular
+// 500: Medium
+// 600: Semi Bold
+// 700: Bold
+// 800: Extra Bold
+// 900: Black
+
+@import "@fontsource/montserrat/200.css";
+@import "@fontsource/montserrat/300.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/700.css";
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 100;
+	src: url("../assets/font/NotoSansJP-Thin.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-Thin.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-Thin.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 200;
+	src: url("../assets/font/NotoSansJP-Light.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-Light.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-Light.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 300;
+	src: url("../assets/font/NotoSansJP-DemiLight.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-DemiLight.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-DemiLight.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../assets/font/NotoSansJP-Regular.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-Regular.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-Regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 500;
+	src: url("../assets/font/NotoSansJP-Medium.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-Medium.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-Medium.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../assets/font/NotoSansJP-Bold.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-Bold.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans JP";
+	font-style: normal;
+	font-weight: 900;
+	src: url("../assets/font/NotoSansJP-Black.woff2") format("woff2"),
+	     url("../assets/font/NotoSansJP-Black.woff") format("woff"),
+	     url("../assets/font/NotoSansJP-Black.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans Mono JP";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../assets/font/NotoSansMonoJP-Regular.woff2") format("woff2"),
+	     url("../assets/font/NotoSansMonoJP-Regular.woff") format("woff"),
+	     url("../assets/font/NotoSansMonoJP-Regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Noto Sans Mono JP";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../assets/font/NotoSansMonoJP-Bold.woff2") format("woff2"),
+	     url("../assets/font/NotoSansMonoJP-Bold.woff") format("woff"),
+	     url("../assets/font/NotoSansMonoJP-Bold.otf") format("opentype");
+}

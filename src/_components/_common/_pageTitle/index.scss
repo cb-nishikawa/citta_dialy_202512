@@ -2,12 +2,28 @@
 @use "../../../assets/scss/s_config" as config;
 
 .c-pageTitle01 {
-    padding: config.vwpc(200) 0 config.vwpc(160);
-    .title {
-        @include config.fontPc(140);
+    position: relative;
+    height: 70svh;
+    padding: 0 config.vwpc(60);
+    transition: opacity 0.3s ease;
+    &.is-scroll {
+        opacity: 0;
+        pointer-events: none;
     }
-    .text {
-        @include config.fontPc(24);
+    .block.contents {
+        position: relative;
+        width: 100%;
+        .area.title {
+            padding: config.vwpc(200) 0 0;
+            box-sizing: border-box;
+            .title {
+                @include config.fontPc(140);
+            }
+            .text {
+                @include config.fontPc(24);
+            }
+        }
+            
     }
 }
 

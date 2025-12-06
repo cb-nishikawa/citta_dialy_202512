@@ -22,7 +22,7 @@ function init(_g) {
 			ease: "none",
 			scrollTrigger: {
 				trigger: bgArea,
-				start: "top bottom",
+				start: "top center",
 				end: "top top",
 				toggleClass: {
 					targets: target, 

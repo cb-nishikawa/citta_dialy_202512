@@ -1,0 +1,15 @@
+@forward "_s_font.scss";
+@use '_s_config' as config;
+
+// html,body {
+// 	overscroll-behavior: none; /* Chrome, Firefox, Edge */
+// 	overscroll-behavior-y: none;
+// }
+body {
+	color: config.$DEFAULT_COLOR01;
+	font-family: config.$DF_FONT;
+	font-feature-settings: "palt";
+    line-height: 1.8;
+	letter-spacing: 0.2em;
+    -webkit-text-size-adjust: 100%;
+}

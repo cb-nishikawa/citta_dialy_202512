@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const targetDir = path.join(__dirname, '../src/assets/image');
+const targetDir = path.join(__dirname, '../../src/assets/image');
 
 // スケール設定
 const scales = [

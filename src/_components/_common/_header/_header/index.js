@@ -128,9 +128,11 @@ function header__colorChange(_g, _tg) {
 		const prevColor = _tg.style.getPropertyValue('--menu-color');
 		if (currentColor && prevColor !== currentColor) {
 			_tg.style.setProperty('--menu-color', currentColor);
+			_tg.classList.add("is-colorChange");
 			if (_g.console) console.log(`menu-color set to ${currentColor}`);
 		} else if (!currentColor && prevColor !== 'inherit') {
 			_tg.style.setProperty('--menu-color', 'inherit');
+			_tg.classList.remove("is-colorChange");
 			if (_g.console) console.log(`menu-color set to inherit`);
 		}
 	}
@@ -191,7 +193,7 @@ function header__mainvisualOver(_g, _tg) {
 		if (!container) return;
 		const headerRect = _tg.getBoundingClientRect();
 		const headerCenterY = headerRect.top + headerRect.height / 2;
-		const mainvisual = container.querySelectorAll("[data-target='topMainvisual01']");
+		const mainvisual = container.querySelectorAll("[data-importantHidden]");
 		let mv = false;
 
 		if (!mainvisual.length && !container) return;

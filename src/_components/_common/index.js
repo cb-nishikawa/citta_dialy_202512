@@ -1,6 +1,7 @@
 
 import { init as _image } from "./_image/";
 import { init as _sideFixed } from "./_sideFixed/";
+import { init as _pageTitle } from "./_pageTitle/";
 import { init as _header } from "./_header/";
 
 
@@ -9,6 +10,7 @@ function init(_g) {
 	_image(_g);
 	_header(_g);
 	_sideFixed(_g);
+	_pageTitle(_g);
 }
 
 // ここから外部用エクスポート

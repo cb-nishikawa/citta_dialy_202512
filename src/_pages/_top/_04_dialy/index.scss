@@ -213,6 +213,22 @@
             background-color: #EFEFEF;
             border-radius: 100px;
             border: none;
+
+            &.color01 {
+                background-color: #F00;
+            }
+            &.color02 {
+                background-color: #0F0;
+            }
+            &.color03 {
+                background-color: #00F;
+            }
+            &.color04 {
+                background-color: #FF0;
+            }
+            &.color05 {
+                background-color: #0FF;
+            }
         }
     }
 

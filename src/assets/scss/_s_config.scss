@@ -5,40 +5,18 @@
   @return if(meta.type-of($value) == 'number' and math.is-unitless($value) == false, math.div($value, $value * 0 + 1), $value);
 }
 
-/* DEFAULT_VARIABLE */
-
 // Breakpoints
-$RES_WID_EXTRA_SMALL03: 400px;
-$RES_WID_EXTRA_SMALL02: 320px;
-$RES_WID_EXTRA_SMALL01: 576px;
 $RES_WID_SMALL01: 768px;
-$RES_WID_MEDIUM02: 900px;
-$RES_WID_MEDIUM01: 1000px;
-$RES_WID_LARGE01: 1200px;
-$RES_WID_EXTRA_LARGE01: 1400px;
-$RES_WID_EXTRA_LARGE02: 2800px;
 
-$CONTENTS_WID_EXTRA_SMALL01: 800px;
-$CONTENTS_WID_SMALL01: 900px;
-$CONTENTS_WID_MEDIUM01: 1000px;
-$CONTENTS_WID_LARGE01: 1200px;
-$CONTENTS_WID_EXTRA_LARGE01: 1400px;
+$CONTENTS_WIDTH01: 1200px;
 
 // Fonts
-$DF_FONT: "Zen Kaku Gothic New", "ヒラギノ角ゴ ProN W3", "メイリオ", sans-serif;
-$DF_FONT_MIN: "Shippori Mincho", "ヒラギノ明朝 Pro W3" , "HiraMinProN-W3" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+$DF_FONT: "Noto Sans JP", sans-serif;
+$DF_EN_FONT: "Montserrat", sans-serif;
 
 // Colors
-$DF_BG_COLOR: #FFF; // Background color
-$DF_TEXT_COLOR: #102B3E; // Text color
-$DF_SELECT_BG_COLOR: #700E75; // Selected background color
-$DF_SELECT_TEXT_COLOR: #FFF; // Selected text color
-$DF_URL_TEXT_COLOR: #337FC5; // URL text color
-
-$SUB_TEXT_COLOR01: #393939;
-$SUB_TEXT_COLOR02: #737373;
-
-
+$DEFAULT_COLOR01: #342622;
+$DEFAULT_COLOR02: #A99886;
 $SITE_BG01: #FFF;
 
 // vwsp: スマホ用 vw変換
@@ -51,12 +29,12 @@ $SITE_BG01: #FFF;
 @function vwpc($size) {
   // 768pxでのサイズ（SP基準で計算、必要なら調整）
   // $min-size: math.div($size * 768, 1400);
-  $min-size: math.div($size * 320, 1400);
+  $min-size: math.div($size * 320, 1280);
   // 140pxでのサイズ（PC基準でそのまま）
   $max-size: $size;
   // clamp-calcで可変値を返す（数値のみ渡す）
   // @return clamp-calc($min-size, $max-size, 768, 1400);
-  @return clamp-calc($min-size, $max-size, 320, 1400);
+  @return clamp-calc($min-size, $max-size, 320, 1280);
 }
 
 // fontSp: スマホ用フォント設定
@@ -71,25 +49,24 @@ $SITE_BG01: #FFF;
   font-size: vwpc($font-size);
 }
 
-
-// Media Queries
-@media (min-width: $RES_WID_LARGE01) {
-
+@mixin hidden($important: false) {
+  @if $important == true {
+    pointer-events: none !important;
+    opacity: 0 !important;
+  } @else {
+    pointer-events: none;
+    opacity: 0;
+  }
 }
-@media (min-width: $RES_WID_MEDIUM01) and (max-width: $RES_WID_LARGE01) {
-
+@mixin visible($important: false) {
+  @if $important == true {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+  } @else {
+    pointer-events: auto;
+    opacity: 1;
+  }
 }
-@media (min-width: $RES_WID_SMALL01) and (max-width: $RES_WID_MEDIUM01) {
-
-}
-@media (min-width: $RES_WID_EXTRA_SMALL01) and (max-width: $RES_WID_SMALL01) {
-
-}
-@media (max-width: $RES_WID_EXTRA_SMALL01) {
-
-}
-
-
 /*
  * 機能：clamp関数の文字列を返す
  * 引数：$size-at-min-width サイズ(フォントサイズなど)の最小値(pxやremなどの単位は必須)
@@ -100,8 +77,8 @@ $SITE_BG01: #FFF;
  *　　デフォルトの最小画面幅$min-width-defaultと最大画面幅$max-width-defaultを事前に指定しておく
  *　　最小幅と最大幅をデフォルト以外にしたい場合は、引数にそれぞれ単位付きの画面幅を入れる
  */
- $min-width-default: $RES_WID_SMALL01; // デフォルトの最小画面幅
- $max-width-default: $RES_WID_MEDIUM01; // デフォルトの最大画面幅
+ $min-width-default: 768px; // デフォルトの最小画面幅
+ $max-width-default: 1400px; // デフォルトの最大画面幅
  @function clamp-calc(
    $size-at-min-width,
    $size-at-max-width,
@@ -156,3 +133,9 @@ $SITE_BG01: #FFF;
    @return $value;
  }
 
+@mixin contentsWidth($max: $CONTENTS_WIDTH01, $padding: 60) {
+  max-width: calc(#{$max} + vwpc($padding) * 2);
+  margin: 0 auto;
+  padding-left: vwpc($padding);
+  padding-right: vwpc($padding);
+}

@@ -59,6 +59,10 @@ export default defineConfig({
         {
           src: 'assets/image/**/*',
           dest: 'assets/image'
+        },
+        {
+          src: 'assets/font/**/*',
+          dest: 'assets/font'
         }
       ]
     }),

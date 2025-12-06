@@ -1,3 +1,5 @@
+@use "../../../assets/scss/s_config" as config;
+
 .p-topConcept01 {
     position: relative;
     z-index: 100;
@@ -14,10 +16,32 @@
             left: 0 !important;
         }
     }
+
+    
     
     .block.scroll {
         width: 100%;
         overflow: hidden;
+
+        .area.title {
+            position: fixed;
+            top: config.vwpc(200);
+            left: config.vwpc(60);
+            z-index: 2000;
+
+            .title {
+                font-family: config.$DF_EN_FONT;
+                font-weight: 200;
+                @include config.fontPc(140);
+                letter-spacing: 0.05em;
+                color: #FFF;
+                margin-bottom: config.vwpc(16);
+            }
+            .text {
+                @include config.fontPc(24);
+                color: #FFF;
+            }
+        }
         
         .area.items {
             display: flex;

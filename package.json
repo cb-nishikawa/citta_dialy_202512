@@ -4,10 +4,10 @@
   "description": "",
   "main": "vite.config.js",
   "scripts": {
-    "dev": "node scripts/convert-to-webp.js && vite",
+    "dev": "node scripts/convert-to-webp/index.js && vite",
     "sass:watch": "sass --watch src/assets/scss:src/assets/css",
     "dev:full": "npm-run-all --parallel dev sass:watch",
-  "build": "rm -rf dist && vite build",
+    "build": "rm -rf dist && vite build",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@fontsource/montserrat": "^5.2.8",
     "@studio-freight/lenis": "^1.0.42",
     "gsap": "^3.13.0",
     "lazysizes": "^5.3.2"

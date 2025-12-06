@@ -4,8 +4,8 @@
     overflow: hidden;
     position: relative;
     z-index: 100;
-    border-top-left-radius: config.vwpc(100);
-    border-top-right-radius: config.vwpc(100);
+    border-top-left-radius: config.vwpc(200);
+    border-top-right-radius: config.vwpc(200);
     transition: border-radius 1.2s linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
 
     &.is-end  {
@@ -18,12 +18,26 @@
         border-top-left-radius: config.vwpc(0);
         border-top-right-radius: config.vwpc(0);
 
-        .content {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            border-top-left-radius: config.vwpc(0) !important;
-            border-top-right-radius: config.vwpc(0) !important;
+        .area.items {
+            .content {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                border-top-left-radius: config.vwpc(0) !important;
+                border-top-right-radius: config.vwpc(0) !important;
+            }
+        }
+    }
+
+    &.is-active {
+        border-top-left-radius: config.vwpc(100);
+        border-top-right-radius: config.vwpc(100);
+
+        .area.items {
+            .content {
+                border-top-left-radius: config.vwpc(100);
+                border-top-right-radius: config.vwpc(100);
+            }
         }
     }
 
@@ -44,7 +58,6 @@
                 position: relative;
                 width: 100%;
                 
-                background-color: #000;
                 transition: opacity 0.3s ease;
                 &:first-child {
                     pointer-events: auto;
@@ -70,85 +83,86 @@
                     pointer-events: auto;
                     opacity: 1 !important;
                 }
-                .content {
+                
+            }
+            .content {
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                position: relative;
+                width: 100svw;
+                height: 100svh;
+
+                border-top-left-radius: config.vwpc(100);
+                border-top-right-radius: config.vwpc(100);
+                transition: opacity 0.3s ease, border-radius 1.2s linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
+
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
                     overflow: hidden;
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .right, .left {
                     display: flex;
-                    align-items: center;
                     justify-content: center;
+                    flex-direction: column;
+                    gap: config.vwpc(20);
 
+                    position: absolute;
+                    z-index: 100;
+                    top: 0;
+                    width: 50%;
+                    height: 100%;
+                }
+                .right {
+                    right: 0;
+                }
+                .left {
+                    left: 0;
+                }
+                .year {
+                    color: #FFFFFF;
+                    font-size: config.vwpc(100);
+                    font-weight: bold;
+                }
+                .lead {
+                    color: #FFFFFF;
+                    font-size: config.vwpc(24);
+                }
+                .textBox {
+                    display: flex;
+                    flex-direction: column;
+                    gap: config.vwpc(10);
+                }
+                .text {
+                    color: #FFFFFF;
+                    font-size: config.vwpc(16);
+                }
+                .image {
+                    overflow: hidden;
                     position: relative;
-                    width: 100svw;
-                    height: 100svh;
-
-                    border-top-left-radius: config.vwpc(100);
-                    border-top-right-radius: config.vwpc(100);
-                    transition: opacity 0.3s ease, border-radius 1.2s linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
-
-                    .bg {
+                    width: 100%;
+                    aspect-ratio: 610 / 410;
+                    img {
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        overflow: hidden;
-                        img {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                    .right, .left {
-                        display: flex;
-                        justify-content: center;
-                        flex-direction: column;
-                        gap: config.vwpc(20);
-
-                        position: absolute;
-                        z-index: 100;
-                        top: 0;
-                        width: 50%;
-                        height: 100%;
-                    }
-                    .right {
-                        right: 0;
-                    }
-                    .left {
-                        left: 0;
-                    }
-                    .year {
-                        color: #FFFFFF;
-                        font-size: config.vwpc(100);
-                        font-weight: bold;
-                    }
-                    .lead {
-                        color: #FFFFFF;
-                        font-size: config.vwpc(24);
-                    }
-                    .textBox {
-                        display: flex;
-                        flex-direction: column;
-                        gap: config.vwpc(10);
-                    }
-                    .text {
-                        color: #FFFFFF;
-                        font-size: config.vwpc(16);
-                    }
-                    .image {
-                        overflow: hidden;
-                        position: relative;
-                        width: 100%;
-                        aspect-ratio: 610 / 410;
-                        img {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
+                        object-fit: cover;
                     }
                 }
             }

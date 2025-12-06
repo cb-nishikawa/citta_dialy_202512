@@ -4,6 +4,7 @@
     position: relative;
     z-index: 1000;
     padding-top: config.vwpc(400);
+
     &.is-enter {
         .bg[data-target="bgArea"] {
             border-top-left-radius: config.vwpc(100);
@@ -30,8 +31,8 @@
         background-size: 80px;
         background-position: top;
         box-shadow: 0px 0px config.vwpc(30) rgba(#735A40, 0.1);
-        border-top-left-radius: config.vwpc(400);
-        border-top-right-radius: config.vwpc(400);
+        border-top-left-radius: config.vwpc(200);
+        border-top-right-radius: config.vwpc(200);
         transition: border-radius 1.2s linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
     }
 }

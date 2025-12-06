@@ -83,7 +83,7 @@ function init(_g) {
 				const scrollPoint = item.querySelector('.scrollPoint');
 				if (scrollPoint) {
 					const halfWindow = window.innerHeight / 2;
-					const threshold = 200; // 中央から±60px以内を1とする閾値
+					const threshold = 30; // 中央から±60px以内を1とする閾値
 					let normalized;
 					if (Math.abs(fromCenter) <= threshold) {
 						normalized = 1;
