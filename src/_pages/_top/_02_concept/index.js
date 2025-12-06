@@ -11,6 +11,7 @@ function init(_g) {
 	const items = itemsTarget.querySelectorAll("[data-target='item']");
 	const num  = items.length;
 
+
 	_g.gsap.set(itemsTarget, {
 		ease: "none",
 		scrollTrigger: {

@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import keenslider from "keen-slider";
 
 import Lenis from '@studio-freight/lenis'
 
@@ -19,7 +20,7 @@ function globalSet() {
         Lenis: Lenis,
 
         debug: debugSet(),
-        
+        keenslider: keenslider,
         resourceLoader: resourceLoader,
         classController: classController,
         observeClassChange: observeClassChange,
