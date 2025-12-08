@@ -1,6 +1,5 @@
 function init(_g, container) {
 	
-	console.log("___sideFixed loaded first");
 
 	const target = container.querySelector("[data-target='sideFixedTarget']");
 	if (!target) return;
@@ -9,8 +8,6 @@ function init(_g, container) {
 	const contentsTarget = target.querySelector("[data-target='contentsTarget']");
 
 	if (_g.console) console.log("__sideFixed loaded");
-
-	console.log(fixedTarget);
 
 	_g.gsap.to(fixedTarget, {
 		scrollTrigger: {
