@@ -2,8 +2,7 @@
 
 import Lenis from '@studio-freight/lenis'
 
-// クラス変更監視プラグインにゃー
-export function smoothScroll(gsap) {
+export function inertialScroll(gsap) {
 	const lenis = new Lenis({
 		// duration: 1.2,         // スクロールアニメーションの持続時間（秒）
 		// easing: (t) => t,      // イージング関数

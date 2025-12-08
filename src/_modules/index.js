@@ -1,3 +1,4 @@
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import keenslider from "keen-slider";
@@ -6,7 +7,8 @@ import { debugSet } from "./_debugSet/";
 import { resourceLoader } from "./_resourceLoader/";
 import { observeClassChange } from "./_observeClassChange/";
 import { classController } from "./_classController/";
-import { smoothScroll } from "./_smoothScroll/";
+import { inertialScroll } from "./_inertialScroll/";
+import { asynchronousTransition } from "./_asynchronousTransition/";
 
 const console = true;
 
@@ -16,13 +18,14 @@ gsap.registerPlugin(ScrollTrigger);
 function globalSet() {
     return {
         gsap: gsap,
+        ScrollTrigger: ScrollTrigger,
         debug: debugSet(),
         keenslider: keenslider,
         resourceLoader: resourceLoader,
         classController: classController,
         observeClassChange: observeClassChange,
-        smoothScroll: smoothScroll,
-        
+        inertialScroll: inertialScroll,
+        asynchronousTransition: asynchronousTransition,
         console: console,
     };
 }

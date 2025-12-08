@@ -1,3 +1,11 @@
 @use "../../../assets/scss/s_config" as config;
 @forward "_header/";
 
+#pageTransition {
+  position: fixed;
+  inset: 0;
+  background: #FFF;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+}
