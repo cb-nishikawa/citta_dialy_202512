@@ -9,6 +9,13 @@
         transition: opacity 0.3s ease;
     }
 
+    &:has(.item:not(:nth-child(1)).is-active) {
+         .topSectionTitle01 {
+            @include config.fontPc(60);
+            
+        }
+    }
+
     &.is-enter {
         .block.scroll {
             .area.title {
@@ -38,13 +45,8 @@
             left: config.vwpc(60);
             z-index: 2000;
 
-            .title {
-                font-family: config.$DF_EN_FONT;
-                font-weight: 200;
-                @include config.fontPc(140);
-                letter-spacing: 0.05em;
+            .topSectionTitle01 {
                 color: #FFF;
-                margin-bottom: config.vwpc(16);
             }
             .text {
                 @include config.fontPc(24);

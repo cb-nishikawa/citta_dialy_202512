@@ -1,3 +1,5 @@
+@use "../../assets/scss/s_config" as config;
+
 
 @forward "_01_mainvisual/";
 @forward "_02_concept/";
@@ -9,3 +11,12 @@
 @forward "_08_movie/";
 @forward "_09_news/";
 
+.topSectionTitle01 {
+    font-family: config.$DF_EN_FONT;
+    font-weight: 200;
+    @include config.fontPc(140);
+    letter-spacing: 0.05em;
+    line-height: 1.0;
+    margin-bottom: config.vwpc(16);
+    transition: font-size 0.5s ease-in-out;
+}

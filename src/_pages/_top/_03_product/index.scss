@@ -13,7 +13,7 @@
 
     &.is-active, &.is-last-active {
         .block.title {
-            .title {
+            .topSectionTitle01 {
                 @include config.fontPc(60);
             }
         }
@@ -41,11 +41,11 @@
         }
         
 
-        .title {
+        .topSectionTitle01 {
             margin-bottom: config.vwpc(16);
             padding-top: config.vwpc(60);
             @include config.fontPc(140);
-            transition: font-size 0.5s ease-in-out;
+            
         }
         .subTitle {
             @include config.fontPc(24);

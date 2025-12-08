@@ -1,5 +1,10 @@
 @use "../../../assets/scss/s_config" as config;
 
+$imageLngth: 5;
+$lineLineAnimationTime: 5.0s;
+$lineSizeAnimationTime: 0.3s;
+$imageFadeAnimationTime: 0.7s;
+
 .p-topMainvisual01 {
     position: relative;
     z-index: 0;
@@ -27,9 +32,27 @@
 
         width: 100%;
         height: 100%;
-        
-        // @include config.contentsWidth();
-        // padding: 0;
+
+        @for $i from 1 through $imageLngth {
+            &.image#{$i} .area.bg .item.image#{$i} {
+                z-index: 10;
+                opacity: 1 !important;
+                scale: 1.1;
+                transition:  opacity $imageFadeAnimationTime ease, scale $lineLineAnimationTime linear;
+            }
+        }
+
+        &:not(.image1) .area.lead {
+            
+            top: config.vwpc(100);   
+            gap: config.vwpc(20);
+            .logo {
+                width: config.vwpc(260);
+            }
+            .text {
+                @include config.fontPc(13);
+            }
+        }
 
         .area.bg {
             position: absolute;
@@ -47,12 +70,19 @@
                 height: calc(100% - #{config.vwsp(10)});
                 border-radius: config.vwsp(10);
             }
+
             .item {
+                pointer-events: none;
+                opacity: 0;
+                z-index: 0;
+
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
+
+                transition:  opacity $imageFadeAnimationTime ease, scale $lineLineAnimationTime 0.3s linear;
                 img {
                     position: absolute;
                     top: 0;
@@ -66,6 +96,56 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+        }
+        .area.btn {
+            display: flex;
+            align-items: center;
+            gap: config.vwpc(10);
+            position: absolute;
+            z-index: 1000;
+
+            bottom: config.vwpc(80);
+            left: config.vwpc(80);
+
+            @for $i from 1 through $imageLngth {
+                &.image#{$i} .btn.image#{$i} {
+                    width: config.vwpc(200);
+                    .line {
+                        opacity: 1;
+                        // transform: scaleX(1);
+                        // transition: transform $lineLineAnimationTime $lineSizeAnimationTime linear;
+                    }
+                }
+            }
+            
+            .btn {
+                position: relative;
+                width: config.vwpc(30);
+                height: config.vwpc(2);
+                background-color: #CDCDCD;
+                transition: all $lineSizeAnimationTime ease;
+
+                span.pointerArea {
+                    display: block;
+                    width: 100%;
+                    height: 50px;
+                    margin-top: -25px;
+                }
+                
+                span.line {
+                    pointer-events: none;
+                    opacity: 0;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #735A40;
+                }
             }
         }
         .area.scroll {
@@ -96,13 +176,15 @@
             position: fixed;
             top: config.vwpc(160);
             right: config.vwpc(120);
+            z-index: 100;
 
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: config.vwpc(40);
 
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, gap $imageFadeAnimationTime ease, top $imageFadeAnimationTime ease, right $imageFadeAnimationTime ease;
+
 
             @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                 top: config.vwsp(100);
@@ -112,8 +194,9 @@
 
             .logo {
                 width: config.vwpc(430);
+                transition: width $imageFadeAnimationTime ease;
                 @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    width: config.vwsp(200);
+                    width: config.vwsp(200) !important;
                 }
                 img {
                     width: 100%;
@@ -123,6 +206,7 @@
             .text {
                 @include config.fontPc(16);
                 text-align: center;
+                transition: font-size $imageFadeAnimationTime ease;
 
                 @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     @include config.fontSp(10);

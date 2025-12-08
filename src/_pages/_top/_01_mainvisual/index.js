@@ -7,6 +7,25 @@ function init(_g) {
 	if (_g.console) console.log("___01_mainvisual loaded");
 
 	const contentsTarget = target.querySelector("[data-target='contentsTarget']");
+	const images = target.querySelectorAll(".area.bg .item");
+	const btnArea = target.querySelector(".area.btn");
+
+	// imagesの枚数分btnAreaにdiv.btnを追加
+	images.forEach(() => {
+		const btn = document.createElement('button');
+		btn.classList.add('btn');
+		btn.classList.add('image' + (btnArea.querySelectorAll('.btn').length + 1));
+		const span = document.createElement('span');
+		span.classList.add('pointerArea');
+		btn.appendChild(span);
+
+		const spanLine = document.createElement('span');
+		spanLine.classList.add('line');
+		btn.appendChild(spanLine);
+		
+		btnArea.appendChild(btn);
+	});
+	
 	_g.gsap.to(target, {
 		scrollTrigger: {
 			trigger: contentsTarget,
@@ -14,6 +33,10 @@ function init(_g) {
 			end: "bottom top", // 固定する距離
 			pin: true,    // ピン止め
 			scrub: true,   // スクロール連動
+			toggleClass: {
+				targets: target, 
+				className: "is-active"
+			}
 		}
 	});
 
@@ -26,6 +49,79 @@ function init(_g) {
 				className: "is-scroll"
 			}
 		}
+	});
+
+	const imageClassCtrl = new _g.classController(["[data-imageCtrl]"]);
+	const transitionendCtrl = new _g.classController(["[data-transitonEndCtrl]"]);
+	
+	let allImages = [];
+
+	let lineAnimation = [];
+
+	btnArea.querySelectorAll('.btn').forEach((btn, index) => {
+		allImages.push(`image${index + 1}`);
+	});
+
+
+	btnArea.querySelectorAll('.btn').forEach((btn, index) => {
+		btn.addEventListener('click', () => {
+				imageClassCtrl.select({select:[`image${index + 1}`], all:allImages});
+		});
+		lineAnimation[index] = _g.gsap.fromTo(btn.querySelector('.line'), { scaleX: 0 }, {
+			scaleX: 1,
+			duration: 5,
+			ease: 'linear',
+			transformOrigin: 'left',
+			paused: true,
+			onComplete: () => {
+				transitionendCtrl.order(allImages);
+			}
+		});
+	});
+
+	// contentsTargetのclass監視→対応btn.lineをGSAPでscaleXアニメーション
+	const btnLines = btnArea.querySelectorAll('.btn .line');
+	const contentsTargetObserver = new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			if (mutation.attributeName === 'class') {
+				const currentClassList = mutation.target.classList;
+				btnLines.forEach((line, index) => {
+					if (currentClassList.contains(`image${index + 1}`)) {
+						lineAnimation[index].restart();
+					} else {
+						lineAnimation[index].pause(0);
+					}
+				});
+			}
+		});
+	});
+	contentsTargetObserver.observe(contentsTarget, { attributes: true });
+
+	const targetObserver = new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			if (mutation.attributeName === 'class') {
+				const currentClassList = mutation.target.classList;
+				if (currentClassList.contains('is-scroll')) {
+					lineAnimation.forEach((animation) => {
+						animation.pause();
+					});
+				} else {
+					lineAnimation.forEach((animation) => {
+						const activeIndex = allImages.findIndex(cls => contentsTarget.classList.contains(cls));
+						if (activeIndex !== -1 && lineAnimation[activeIndex]) {
+							lineAnimation[activeIndex].play();
+						}
+					});
+				}
+			}
+		});
+	});
+	targetObserver.observe(target, { attributes: true });
+
+	target.querySelectorAll('[data-imageCtrl]').forEach((ctrlTarget) => {
+		setTimeout(() => {
+			ctrlTarget.classList.add('image1');
+		}, 100);
 	});
 }
 
