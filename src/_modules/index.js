@@ -2,12 +2,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import keenslider from "keen-slider";
 
-import Lenis from '@studio-freight/lenis'
-
 import { debugSet } from "./_debugSet/";
 import { resourceLoader } from "./_resourceLoader/";
 import { observeClassChange } from "./_observeClassChange/";
 import { classController } from "./_classController/";
+import { smoothScroll } from "./_smoothScroll/";
 
 const console = true;
 
@@ -17,13 +16,12 @@ gsap.registerPlugin(ScrollTrigger);
 function globalSet() {
     return {
         gsap: gsap,
-        Lenis: Lenis,
-
         debug: debugSet(),
         keenslider: keenslider,
         resourceLoader: resourceLoader,
         classController: classController,
         observeClassChange: observeClassChange,
+        smoothScroll: smoothScroll,
         
         console: console,
     };
