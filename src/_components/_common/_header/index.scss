@@ -1,3 +1,26 @@
 @use "../../../assets/scss/s_config" as config;
 @forward "_header/";
 
+#pageTransition {
+    position: fixed;
+    inset: 0;
+    background: #FFF;
+    z-index: 9800;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.barba-leave-active #pageTransition {
+    opacity: 1;
+    
+}
+body.barba-enter-active #pageTransition {
+    opacity: 0;
+}
+    // body.barba-leave-to #pageTransition {
+    //   opacity: 0;
+    // }
+    // body.barba-enter-to #pageTransition {
+    //   opacity: 1;
+    // }

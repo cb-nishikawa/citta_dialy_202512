@@ -1,5 +1,7 @@
-function init(_g) {
-	const target = document.querySelector("[data-target='sideFixedTarget']");
+function init(_g, container) {
+	
+
+	const target = container.querySelector("[data-target='sideFixedTarget']");
 	if (!target) return;
 
 	const fixedTarget = target.querySelector("[data-target='fixedTarget']");

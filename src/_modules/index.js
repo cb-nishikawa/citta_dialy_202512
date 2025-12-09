@@ -1,13 +1,14 @@
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import keenslider from "keen-slider";
-
-import Lenis from '@studio-freight/lenis'
 
 import { debugSet } from "./_debugSet/";
 import { resourceLoader } from "./_resourceLoader/";
 import { observeClassChange } from "./_observeClassChange/";
 import { classController } from "./_classController/";
+import { inertialScroll } from "./_inertialScroll/";
+import { asynchronousTransition } from "./_asynchronousTransition/";
 
 const console = true;
 
@@ -17,14 +18,14 @@ gsap.registerPlugin(ScrollTrigger);
 function globalSet() {
     return {
         gsap: gsap,
-        Lenis: Lenis,
-
+        ScrollTrigger: ScrollTrigger,
         debug: debugSet(),
         keenslider: keenslider,
         resourceLoader: resourceLoader,
         classController: classController,
         observeClassChange: observeClassChange,
-        
+        inertialScroll: inertialScroll,
+        asynchronousTransition: asynchronousTransition,
         console: console,
     };
 }
