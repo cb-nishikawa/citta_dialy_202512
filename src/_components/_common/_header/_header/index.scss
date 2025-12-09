@@ -177,6 +177,10 @@ $HEADER_MENU_COLOR: config.$DEFAULT_COLOR01;
     width: 100%;
     box-sizing: border-box;
 
+    @include config.SP {
+        padding-bottom: config.vwsp(20);
+    }
+
     &::after {
         content: "";
         display: block;

@@ -50,6 +50,11 @@
             left: config.vwpc(60);
             z-index: 2000;
 
+            @include config.SP {
+                top: config.vwsp(100);
+                left: config.vwsp(20);
+            }
+
             .topSectionTitle01 {
                 color: #FFF;
             }
