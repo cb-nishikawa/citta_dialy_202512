@@ -51,6 +51,19 @@ function init(_g) {
 		}
 	});
 
+	_g.gsap.to(target, {
+		scrollTrigger: {
+			trigger: target,
+			start: "bottom top",
+			onLeave: () => {
+				target.classList.add("is-end");
+			},
+			onEnterBack: () => {
+				target.classList.remove("is-end");
+			}
+		}
+	});
+
 	const imageClassCtrl = new _g.classController(["[data-imageCtrl]"]);
 	const transitionendCtrl = new _g.classController(["[data-transitonEndCtrl]"]);
 	
@@ -108,9 +121,7 @@ function init(_g) {
 				} else {
 					lineAnimation.forEach((animation) => {
 						const activeIndex = allImages.findIndex(cls => contentsTarget.classList.contains(cls));
-						if (activeIndex !== -1 && lineAnimation[activeIndex]) {
-							lineAnimation[activeIndex].play();
-						}
+						lineAnimation[activeIndex].play();
 					});
 				}
 			}

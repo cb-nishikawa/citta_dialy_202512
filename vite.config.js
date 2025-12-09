@@ -10,6 +10,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "./src/index.html",
+        concept: "./src/concept/index.html",
+        history: "./src/history/index.html",
+        howto: "./src/howto/index.html",
+        learn: "./src/learn/index.html",
+        news: "./src/news/index.html",
+        product: "./src/product/index.html",
       },
       output: {
         assetFileNames: (assetInfo) => {

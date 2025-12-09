@@ -58,7 +58,7 @@
             display: flex;
             flex-direction: column;
             background-color: #f0e4e4;
-            height: 500svh;
+            height: 1000svh;
 
             .item {
                 pointer-events: none;
@@ -124,7 +124,7 @@
                         bottom: config.vwpc(60);
                         left: config.vwpc(60);
                         z-index: 10;
-                        width: config.vwpc(600);
+                        width: fit-content;
                         padding: config.vwpc(40);
                         color: #FFF;
                         border-radius: config.vwpc(20);
@@ -142,7 +142,6 @@
 
                             background: rgba(0, 0, 0, 0.3);
                             backdrop-filter: blur(8px);
-                            /* 注: backdrop-filterのブラウザサポートは最小限です */
                         }
 
                         .title {
