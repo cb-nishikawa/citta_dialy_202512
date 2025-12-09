@@ -10,6 +10,8 @@ $RES_WID_SMALL01: 768px;
 
 $CONTENTS_WIDTH01: 1200px;
 
+$RESPONSIVE_ASPECT: "3/4";
+
 // Fonts
 $DF_FONT: "Noto Sans JP", sans-serif;
 $DF_EN_FONT: "Montserrat", sans-serif;
@@ -18,6 +20,9 @@ $DF_EN_FONT: "Montserrat", sans-serif;
 $DEFAULT_COLOR01: #342622;
 $DEFAULT_COLOR02: #A99886;
 $SITE_BG01: #FFF;
+
+@mixin SP {@media (max-width: $RES_WID_SMALL01) and (max-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
+@mixin PC {@media (min-width: $RES_WID_SMALL01) and (min-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
 
 // vwsp: スマホ用 vw変換
 @function vwsp($size) {

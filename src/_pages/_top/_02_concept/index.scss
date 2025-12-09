@@ -1,5 +1,7 @@
 @use "../../../assets/scss/s_config" as config;
 
+
+
 .p-topConcept01 {
     position: relative;
     z-index: 100;
@@ -11,8 +13,9 @@
 
     &:has(.item:not(:nth-child(1)).is-active) {
          .topSectionTitle01 {
-            @include config.fontPc(60);
-            
+            @include config.PC {
+                @include config.fontPc(60);
+            }
         }
     }
 
@@ -24,9 +27,11 @@
             }
              .area.items {
                 .content {
-                    position: fixed !important;
-                    top: 0 !important;
-                    left: 0 !important;
+                    @include config.PC {
+                        position: fixed !important;
+                        top: 0 !important;
+                        left: 0 !important;
+                    }
                 }
              }
         }
@@ -51,6 +56,9 @@
             .text {
                 @include config.fontPc(24);
                 color: #FFF;
+                @include config.SP {
+                    font-size: config.vwsp(12);
+                }
             }
         }
         
@@ -59,6 +67,9 @@
             flex-direction: column;
             background-color: #f0e4e4;
             height: 1000svh;
+            @include config.SP {
+                height: fit-content;
+            }
 
             .item {
                 pointer-events: none;
@@ -68,6 +79,11 @@
                 width: 100%;
                 background-color: #000;
                 transition: opacity 0.3s ease;
+
+                @include config.SP {
+                    position: relative;
+                    opacity: 1 !important;
+                }
                 &:first-child {
                     pointer-events: auto;
                     opacity: 1;
@@ -126,8 +142,16 @@
                         z-index: 10;
                         width: fit-content;
                         padding: config.vwpc(40);
+                        box-sizing: border-box;
                         color: #FFF;
                         border-radius: config.vwpc(20);
+                        @include config.SP {
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            padding: config.vwsp(20);
+                            border-radius: 0;
+                        }
 
                         &::after {
                             /* bg */
@@ -149,17 +173,27 @@
                             z-index: 20;
                             @include config.fontPc(24);
                             margin-bottom: config.vwpc(16);
+                            @include config.SP {
+                                font-size: config.vwsp(14);
+                            }
                             
                             span {
                                 margin-right: config.vwpc(8);
                                 font-size: config.vwpc(16);
                                 vertical-align: super;
+                                @include config.SP {
+                                    margin-right: config.vwsp(8);
+                                    font-size: config.vwsp(10); 
+                                }
                             }
                         }
                         .text {
                             position: relative;
                             z-index: 20;
                             @include config.fontPc(16);
+                            @include config.SP {
+                                font-size: config.vwsp(12);
+                            }
                         }
                     }
                 }

@@ -22,6 +22,13 @@ $imageFadeAnimationTime: 0.7s;
                 left: config.vwpc(20);
                 width: calc(100% - #{config.vwpc(40)});
                 height: calc(100% - #{config.vwpc(40)});
+
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    top: config.vwsp(30);
+                    left: config.vwsp(30);
+                    width: calc(100% - #{config.vwsp(60)});
+                    height: calc(100% - #{config.vwsp(60)});
+                }
             }
         }
     }
@@ -33,6 +40,12 @@ $imageFadeAnimationTime: 0.7s;
                 left: config.vwpc(20);
                 width: calc(100% - #{config.vwpc(40)});
                 height: calc(100% - #{config.vwpc(40)});
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    top: config.vwsp(30);
+                    left: config.vwsp(30);
+                    width: calc(100% - #{config.vwsp(60)});
+                    height: calc(100% - #{config.vwsp(60)});
+                }
             }
             .area.scroll {
                 opacity: 0;
@@ -107,6 +120,8 @@ $imageFadeAnimationTime: 0.7s;
                 height: 100%;
 
                 transition:  opacity $imageFadeAnimationTime ease, scale $lineLineAnimationTime 0.3s linear;
+
+                
                 img {
                     position: absolute;
                     top: 0;
@@ -132,9 +147,21 @@ $imageFadeAnimationTime: 0.7s;
             bottom: config.vwpc(80);
             left: config.vwpc(80);
 
+
+            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                gap: config.vwsp(5);
+                left: 0;
+                width: 100%;
+                padding: 0 config.vwsp(20);
+                box-sizing: border-box;
+            }
+
             @for $i from 1 through $imageLngth {
                 &.image#{$i} .btn.image#{$i} {
                     width: config.vwpc(200);
+                    @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                        width: 100%;
+                    }
                     .line {
                         opacity: 1;
                         // transform: scaleX(1);
@@ -149,6 +176,11 @@ $imageFadeAnimationTime: 0.7s;
                 height: config.vwpc(2);
                 background-color: #CDCDCD;
                 transition: all $lineSizeAnimationTime ease;
+
+                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    width: 20%;
+                    height: config.vwsp(1);
+                }
 
                 span.pointerArea {
                     display: block;

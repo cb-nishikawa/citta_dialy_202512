@@ -5,6 +5,8 @@
     z-index: 1000;
     padding-top: config.vwpc(400);
 
+    
+
     &.is-enter {
         .bg[data-target="bgArea"] {
             border-top-left-radius: config.vwpc(100);

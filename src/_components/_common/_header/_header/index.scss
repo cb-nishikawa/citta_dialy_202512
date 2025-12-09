@@ -1,25 +1,19 @@
 @use "../../../../assets/scss/s_config" as config;
 
 
-$LOGO_WIDTH: 220;
-$LOGO_WIDTH_SP: 100;
-$MENU_COLOR: config.$DEFAULT_COLOR01;
-$BACKGROUND_GRADIENT: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-$RESPONSIVE_SIZE: config.$RES_WID_SMALL01;
-$RESPONSIVE_ASPECT: "3/4";
-
-@mixin SP {@media (max-width: $RESPONSIVE_SIZE) and (max-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
-@mixin PC {@media (min-width: $RESPONSIVE_SIZE) and (min-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
+$HEADER_LOGO_WIDTH: 220;
+$HEADER_LOGO_WIDTH_SP: 100;
+$HEADER_MENU_COLOR: config.$DEFAULT_COLOR01;
 
 
 // ロゴ
 // ----------------------------------------------------
 %logo {
 
-    width: config.vwpc($LOGO_WIDTH);
+    width: config.vwpc($HEADER_LOGO_WIDTH);
 
-    @include SP {
-        width: config.vwsp($LOGO_WIDTH_SP);
+    @include config.SP {
+        width: config.vwsp($HEADER_LOGO_WIDTH_SP);
     }
 
     span {
@@ -49,13 +43,13 @@ $RESPONSIVE_ASPECT: "3/4";
 %menu {
     padding-right: config.vwpc(20);
     transition: opacity 0.3s ease;
-    @include SP {
+    @include config.SP {
         @include config.hidden;
         padding-right: 0;
     }
 
     &.is-active {
-        @include SP {
+        @include config.SP {
             @include config.visible;
         }
     }
@@ -63,7 +57,7 @@ $RESPONSIVE_ASPECT: "3/4";
     ul {
         display: flex;
         gap: config.vwpc(30);
-        @include SP {
+        @include config.SP {
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -80,27 +74,27 @@ $RESPONSIVE_ASPECT: "3/4";
         }
     }
     li {
-        color: var(--menu-color, $MENU_COLOR);
+        color: var(--menu-color, $HEADER_MENU_COLOR);
         font-family: config.$DF_EN_FONT;
         font-weight: 200;
         @include config.fontPc(16);
         line-height: 1.0;
         letter-spacing: 0em;
         
-        @include SP {
+        @include config.SP {
             @include config.fontSp(16);
         }
     }
     a {
         transition: color 0.3s ease;
 
-        @include SP {
-            color: $MENU_COLOR;
+        @include config.SP {
+            color: $HEADER_MENU_COLOR;
         }
     }
 
     &_isMv_PC {
-        @include PC {
+        @include config.PC {
             position: absolute;
             padding-right: 0;
             top: config.vwpc(80);
@@ -139,7 +133,7 @@ $RESPONSIVE_ASPECT: "3/4";
 
     transition: opacity 0.3s ease;
 
-    @include SP {
+    @include config.SP {
         pointer-events: auto;
         opacity: 1;
     }
@@ -162,7 +156,7 @@ $RESPONSIVE_ASPECT: "3/4";
         display: block;
         width: 100%;
         height: config.vwsp(2);
-        background-color: var(--menu-color, $MENU_COLOR);
+        background-color: var(--menu-color, $HEADER_MENU_COLOR);
         opacity: 0.8;
     }
 
@@ -214,7 +208,7 @@ $RESPONSIVE_ASPECT: "3/4";
         @include config.contentsWidth();
         transition: opacity 0.5s ease;
 
-        @include SP {
+        @include config.SP {
             padding-top: config.vwsp(20);
             padding-bottom: config.vwsp(10);
         }
@@ -228,7 +222,7 @@ $RESPONSIVE_ASPECT: "3/4";
             position: relative;
             z-index: 100;
 
-            @include SP {
+            @include config.SP {
                 justify-content: center
             }
 
@@ -272,7 +266,7 @@ $RESPONSIVE_ASPECT: "3/4";
     &.is-mv {
         &>.componentWrapper {
             max-width: 100%;
-            @include PC {
+            @include config.PC {
                 padding: 0;
             }
             &>.block.contents {

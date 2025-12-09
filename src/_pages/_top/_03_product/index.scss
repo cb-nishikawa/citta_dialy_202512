@@ -36,7 +36,7 @@
         left: config.vwpc(60);
         width: calc(70svh * (560 / 700));
         height: 100%;
-        @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+        @include config.SP {
             display: none;
         }
         
@@ -85,22 +85,60 @@
         width: calc(100% - calc(70svh * (560 / 700)) - config.vwpc(60));
         padding: 100svh 0;
 
-        @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+        @include config.SP {
             width: 100%;
+            padding: config.vwsp(0) 0;
         }
         
         .item {
             width: 100%;
             padding: config.vwpc(80) 0;
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            @include config.SP {
                 opacity: 1 !important;
             }
         }
         .image {
             display: none;
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            @include config.SP {
                 display: block;
+                width: 100%;
+                height: config.vwsp(200);
+            }
+        }
+        .title {
+            display: flex;
+            @include config.SP {
+                flex-direction: column;
+            }
+            span {
+                display: block;
+                &.en {
+                    @include config.fontPc(36);
+                    @include config.SP {
+                        @include config.fontSp(24);
+                    }
+                }
+                &.jp {
+                    @include config.fontPc(20);
+                    @include config.SP {
+                        @include config.fontSp(12);
+                    }
+                    &::before {
+                        content: "／";
+                        display: inline-block;
+                        @include config.fontPc(36);
+                        @include config.SP {
+                            @include config.fontSp(12);
+                        }
+                    }
+                }
+            }
+        }
+        .text {
+            @include config.fontPc(16);
+            @include config.SP {
+                @include config.fontSp(12);
             }
         }
     }

@@ -19,4 +19,8 @@
     line-height: 1.0;
     margin-bottom: config.vwpc(16);
     transition: font-size 0.5s ease-in-out;
+
+    @media (min-width: config.$RES_WID_SMALL01) and (min-aspect-ratio: 3/4) {
+        @include config.fontSp(50);
+    }
 }

@@ -42,6 +42,7 @@ export default defineConfig({
   },
   server: {
     open: true,
+    host: '0.0.0.0',
   },
   plugins: [
     // EJS を保存したら Vite に強制再読込
