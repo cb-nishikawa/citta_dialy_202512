@@ -4,7 +4,7 @@ import Lenis from '@studio-freight/lenis'
 
 export function inertialScroll(gsap) {
 	const lenis = new Lenis({
-		// duration: 1.2,         // スクロールアニメーションの持続時間（秒）
+		duration: 1.5,         // スクロールアニメーションの持続時間（秒）
 		// easing: (t) => t,      // イージング関数
 		smooth: true,          // スムーススクロール有効
 		// direction: 'vertical', // 'vertical' or 'horizontal'

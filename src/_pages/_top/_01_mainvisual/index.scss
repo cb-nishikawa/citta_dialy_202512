@@ -144,15 +144,16 @@ $imageFadeAnimationTime: 0.7s;
             position: absolute;
             z-index: 1000;
 
-            bottom: config.vwpc(80);
-            left: config.vwpc(80);
+            bottom: config.vwpc(60);
+            left: config.vwpc(60);
 
 
             @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                 gap: config.vwsp(5);
-                left: 0;
-                width: 100%;
-                padding: 0 config.vwsp(20);
+                bottom: config.vwsp(160);
+                left: 50%;
+                transform: translateX(-50%);
+                width: config.vwsp(300);
                 box-sizing: border-box;
             }
 
@@ -207,7 +208,7 @@ $imageFadeAnimationTime: 0.7s;
         .area.scroll {
             position: fixed;
             top: config.vwpc(520);
-            left: config.vwpc(80);
+            left: config.vwpc(60);
 
             transition: opacity 0.3s ease;
 
@@ -266,6 +267,38 @@ $imageFadeAnimationTime: 0.7s;
 
                 @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
                     @include config.fontSp(10);
+                }
+            }
+        }
+        .area.banner {
+            position: absolute;
+            bottom: config.vwpc(60);
+            right: config.vwpc(60);
+            z-index: 1000;
+
+            @include config.SP {
+                bottom: config.vwsp(20);
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+             a {
+                display: block;
+                width: config.vwpc(520);
+                height: config.vwpc(192);
+                background-color: #FFF;
+                padding: config.vwpc(4);
+                box-sizing: border-box;
+
+                @include config.SP {
+                    width: config.vwsp(300);
+                    height: config.vwsp(112);
+                    padding: config.vwsp(4);
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
         }

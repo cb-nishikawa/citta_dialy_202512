@@ -1,20 +1,14 @@
 @use "../../../assets/scss/s_config" as config;
 
 .p-topProduct01 {
-    display: flex;
-    justify-content: flex-end;
-
-    position: relative;
-    z-index: 100;
-
-    padding: 0 config.vwpc(60) config.vwpc(120);
-
-    box-sizing: border-box;
+    
 
     &.is-active, &.is-last-active {
-        .block.title {
-            .topSectionTitle01 {
-                @include config.fontPc(60);
+        &>.componentWrapper {
+            .block.title {
+                .topSectionTitle01 {
+                    @include config.fontPc(60);
+                }
             }
         }
     }
@@ -31,150 +25,166 @@
         }
     }
 
-    .block.title {
-        position: absolute;
-        left: config.vwpc(60);
-        width: calc(70svh * (560 / 700));
-        height: 100%;
+    &>.componentWrapper {
+        display: flex;
+        justify-content: flex-end;
 
-        @media screen and (max-width: 1000px) {
-             width: calc(40svh * (560 / 700));
-        }
+        position: relative;
+        z-index: 100;
 
-        @include config.SP {
-            display: none;
-        }
-        
+        @include config.contentsWidth();
 
-        .topSectionTitle01 {
-            margin-bottom: config.vwpc(16);
-            padding-top: config.vwpc(60);
-            @include config.fontPc(140);
-            
-        }
-        .subTitle {
-            @include config.fontPc(24);
-        }
-        .images {
-            position: relative;
-            height: 70svh;
-            aspect-ratio: 560 / 700;
-            margin-top: config.vwpc(40);
+        padding: 0 config.vwpc(60) config.vwpc(120);
+
+        box-sizing: border-box;
+
+        .block.title {
+            position: absolute;
+            left: config.vwpc(60);
+            width: calc(60svh * (560 / 700));
+            height: 100%;
 
             @media screen and (max-width: 1000px) {
-                height: 40svh;
+                width: calc(40svh * (560 / 700));
             }
 
+            @include config.SP {
+                display: none;
+            }
+            
+
+            .topSectionTitle01 {
+                margin-bottom: config.vwpc(16);
+                padding-top: config.vwpc(60);
+                @include config.fontPc(140);
+                
+            }
+            .subTitle {
+                @include config.fontPc(24);
+            }
+            .images {
+                position: relative;
+                height: 60svh;
+                aspect-ratio: 560 / 700;
+                margin-top: config.vwpc(40);
+
+                @media screen and (max-width: 1000px) {
+                    height: 40svh;
+                }
+
+                .image {
+                    pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    &.is-active {
+                        pointer-events: all;
+                        opacity: 1;
+                    }
+                    &:first-child {
+                        opacity: 1 !important;
+                    }
+
+                }
+            }
+        }
+        .block.contents {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: config.vwpc(80);
+            width: calc(100% - calc(60svh * (560 / 700)) - config.vwpc(60));
+            padding: 100svh 0;
+
+            @media screen and (max-width: 1000px) {
+                width: calc(100% - calc(40svh * (560 / 700)) - config.vwpc(60));
+            }   
+
+            @include config.SP {
+                width: 100%;
+                padding: config.vwsp(0) 0;
+            }
+            
+            .item {
+                width: 100%;
+                padding: config.vwpc(80) 0;
+
+                @include config.SP {
+                    opacity: 1 !important;
+                }
+            }
             .image {
-                pointer-events: none;
+                display: none;
+                @include config.SP {
+                    display: block;
+                    width: 100%;
+                    height: config.vwsp(200);
+                }
+            }
+            .title {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: config.vwpc(16);
+                @include config.SP {
+                    flex-direction: column;
+                }
+                span {
+                    display: block;
+                    line-height: 1.0;
+                    &.en {
+                        @include config.fontPc(28);
+                        @include config.SP {
+                            @include config.fontSp(24);
+                        }
+                    }
+                    &.jp {
+                        @include config.fontPc(20);
+                        @include config.SP {
+                            @include config.fontSp(12);
+                        }
+                        &::before {
+                            content: "／";
+                            display: inline-block;
+                            @include config.fontPc(28);
+                            @include config.SP {
+                                @include config.fontSp(12);
+                            }
+                        }
+                    }
+                }
+            }
+            .text {
+                @include config.fontPc(16);
+                @include config.SP {
+                    @include config.fontSp(12);
+                }
+            }
+        }
+        .image {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: config.vwpc(300);
+            height: config.vwpc(300);
+            background-color: #CFCFCF;
+            border-radius: config.vwpc(16);
+            img {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                &.is-active {
-                    pointer-events: all;
-                    opacity: 1;
-                }
-                &:first-child {
-                    opacity: 1 !important;
-                }
-
+                object-fit: cover;
             }
         }
     }
-    .block.contents {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-end;
-        gap: config.vwpc(80);
-        width: calc(100% - calc(70svh * (560 / 700)) - config.vwpc(60));
-        padding: 100svh 0;
 
-        @media screen and (max-width: 1000px) {
-            width: calc(100% - calc(40svh * (560 / 700)) - config.vwpc(60));
-        }   
-
-        @include config.SP {
-            width: 100%;
-            padding: config.vwsp(0) 0;
-        }
-        
-        .item {
-            width: 100%;
-            padding: config.vwpc(80) 0;
-
-            @include config.SP {
-                opacity: 1 !important;
-            }
-        }
-        .image {
-            display: none;
-            @include config.SP {
-                display: block;
-                width: 100%;
-                height: config.vwsp(200);
-            }
-        }
-        .title {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: config.vwpc(16);
-            @include config.SP {
-                flex-direction: column;
-            }
-            span {
-                display: block;
-                line-height: 1.0;
-                &.en {
-                    @include config.fontPc(28);
-                    @include config.SP {
-                        @include config.fontSp(24);
-                    }
-                }
-                &.jp {
-                    @include config.fontPc(20);
-                    @include config.SP {
-                        @include config.fontSp(12);
-                    }
-                    &::before {
-                        content: "／";
-                        display: inline-block;
-                        @include config.fontPc(28);
-                        @include config.SP {
-                            @include config.fontSp(12);
-                        }
-                    }
-                }
-            }
-        }
-        .text {
-            @include config.fontPc(16);
-            @include config.SP {
-                @include config.fontSp(12);
-            }
-        }
-    }
-    .image {
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        width: config.vwpc(300);
-        height: config.vwpc(300);
-        background-color: #CFCFCF;
-        border-radius: config.vwpc(16);
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+    
 }

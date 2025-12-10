@@ -116,13 +116,15 @@ function init(_g) {
 				const currentClassList = mutation.target.classList;
 				if (currentClassList.contains('is-scroll')) {
 					lineAnimation.forEach((animation) => {
-						animation.pause();
+						if (animation && typeof animation.pause === 'function') {
+							animation.pause();
+						}
 					});
 				} else {
-					lineAnimation.forEach((animation) => {
-						const activeIndex = allImages.findIndex(cls => contentsTarget.classList.contains(cls));
+					const activeIndex = allImages.findIndex(cls => contentsTarget.classList.contains(cls));
+					if (lineAnimation[activeIndex] && typeof lineAnimation[activeIndex].play === 'function') {
 						lineAnimation[activeIndex].play();
-					});
+					}
 				}
 			}
 		});
