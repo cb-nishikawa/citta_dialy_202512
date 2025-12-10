@@ -1,8 +1,49 @@
-footer {
+@use "../../../assets/scss/s_config" as config;
+
+.c-bannerSet {
     position: relative;
     z-index: 9000;
     width: 100%;
-    height: 100svh;
-    background-color: #000;
     color: #FFF;
+
+    &>.componentWrapper {
+        position: relative;
+        height: 100%;
+        z-index: 100;
+        .block.contents {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: config.vwpc(40);
+            width: 100%;
+            height: 100%;
+
+            @include config.SP {
+                flex-direction: column;
+                gap: config.vwsp(20);
+                padding: config.vwsp(20) 0;
+            }
+            .item {
+                a {
+                    display: block;
+                    width: config.vwpc(580);
+                    height: config.vwpc(218);
+                    background-color: #FFF;
+                    padding: config.vwpc(8);
+                    box-sizing: border-box;
+
+                    @include config.SP {
+                        width: config.vwsp(300);
+                        height: config.vwsp(112);
+                        padding: config.vwsp(4);
+                    }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
 }

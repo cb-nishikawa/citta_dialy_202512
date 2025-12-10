@@ -2,39 +2,60 @@
 @use "../../../assets/scss/s_config" as config;
 
 .c-sideFixed01 {
-    display: flex;
-    justify-content: flex-end;
     position: relative;
     z-index: 100;
 
     box-sizing: border-box;
 
-    .block.menu {
-        position: absolute;
-        left: 0;
-        width: config.vwpc(560);
-        height: 100%;
+    &>.componentWrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        @include config.contentsWidth();
+
+        @include config.SP {
+            flex-direction: column;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            height: 100% !important;
+            max-height: none !important;
+            padding: 0 config.vwsp(10) !important;
+            transform: none !important;
+        }
+
+        .pin-spacer {
+            @include config.SP {
+                width: auto !important;
+                height: 100% !important;
+                padding: 0 !important;
+            }
+        }
+
+        .block.menu {
+            position: absolute;
+            left: 0;
+            height: 100%;
+
+            @include config.SP {
+                position: relative !important;
+                width: 100% !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+            }
+        }
+
+        .block.contents {
+
+            @include config.SP {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
     }
 
-    .block.contents {
-        display: flex;
-        flex-direction: column;
-        width: calc(100% - config.vwpc(560));
-        // padding: 100svh 0;
-        
-        .item {
-            width: 100%;
-            padding: config.vwpc(80) 0;
-            background-color: #DFDFDF;
-        }
-        .image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: config.vwpc(300);
-            height: config.vwpc(300);
-            background-color: #CFCFCF;
-        }
-    }
+    
 }
 

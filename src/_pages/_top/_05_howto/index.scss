@@ -5,10 +5,50 @@
 .p-topHowto01 {
     position: relative;
     z-index: 100;
-    height: 100svh;
-    padding: 50svh 0;
+    padding: 10svh 0;
     &>.componentWrapper {
         position: relative;
+
+        .block.title {
+            margin-bottom: config.vwpc(40);
+            padding-left: config.vwpc(60);
+
+            @include config.SP {
+                padding-left: config.vwsp(20);
+                margin-bottom: config.vwsp(20);
+            }
+            .title {
+                display: flex;
+                align-items: center;
+                gap: config.vwpc(10);
+
+                @include config.SP {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: config.vwsp(10);
+                }
+                span {
+                    display: block;
+                    line-height: 1.0;
+                }
+                .en {
+                    font-family: config.$DF_EN_FONT;
+                    font-weight: 200;
+                    @include config.fontPc(60);
+                    color: #B5A49E;
+                    @include config.SP {
+                        @include config.fontSp(34);
+                    }
+                }
+                .jp {
+                    @include config.fontPc(16);
+                    color: #B5A49E;
+                    @include config.SP {
+                        @include config.fontSp(12);
+                    }
+                }
+            }
+        }
         
         .block.slider {
             
@@ -21,7 +61,74 @@
             .area.slider {
                 overflow: visible;
                 width: config.vwpc(400);
+                @include config.SP {
+                    width: calc(100% - config.vwsp(40));
+                }
+            }
+        }
 
+        .item {
+            
+            padding: config.vwpc(20) config.vwpc(20) config.vwpc(30);
+            /* Frame 3028 */
+
+            @include config.SP {
+                padding: config.vwsp(10) config.vwsp(10) config.vwsp(15);
+            }
+
+            a {
+                display: block;
+                padding: config.vwpc(20) config.vwpc(20) config.vwpc(30);
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px config.vwpc(30) rgba(115, 90, 64, 0.15);
+                border-radius: 20px;
+
+                @include config.SP {
+                    padding: config.vwsp(10) config.vwsp(10) config.vwsp(15);
+                    box-shadow: 0px 0px config.vwsp(15) rgba(115, 90, 64, 0.15);
+                }
+            }
+
+            .image {
+                overflow: hidden;
+                width: 100%;
+                height: auto;
+                margin-bottom: config.vwpc(12);
+                border-radius: config.vwpc(10);
+
+                @include config.SP {
+                    margin-bottom: config.vwsp(8);
+                    border-radius: config.vwsp(8);
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .title {
+                @include config.fontPc(18);
+                color: #615B54;
+
+                @include config.SP {
+                    @include config.fontSp(11);
+                }
+            }
+            .btn {
+                display: table;
+                margin: config.vwpc(20) auto 0;
+                padding: config.vwpc(10) config.vwpc(30);
+                background-color: #000;
+                border-radius: 100px;
+                color: #FFF;
+
+                @include config.fontPc(11);
+
+                @include config.SP {
+                    margin: config.vwsp(10) auto 0;
+                    padding: config.vwsp(6) config.vwsp(20);
+                    @include config.fontSp(10);
+                }
             }
         }
     }

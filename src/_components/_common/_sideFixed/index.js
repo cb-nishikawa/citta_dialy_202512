@@ -13,7 +13,7 @@ function init(_g, container) {
 		scrollTrigger: {
 			trigger: fixedTarget,
 			start: "top top",
-			end: "bottom bottom",
+			end: "bottom top",
 			pin: true,
 			pinSpacing: true,
 			scrub: true,

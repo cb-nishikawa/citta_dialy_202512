@@ -5,6 +5,10 @@
 .p-topConcept01 {
     position: relative;
     z-index: 100;
+    @include config.SP {
+        margin-bottom: config.vwsp(60);
+    }
+
     &.is-end  {
         pointer-events: none;
         opacity: 0;

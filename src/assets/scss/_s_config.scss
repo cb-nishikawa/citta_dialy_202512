@@ -9,8 +9,7 @@
 $RES_WID_SMALL01: 768px;
 
 $CONTENTS_WIDTH01: 1200px;
-
-$RESPONSIVE_ASPECT: "3/4";
+$RESPONSIVE_ASPECT: math.div(3, 4);
 
 // Fonts
 $DF_FONT: "Noto Sans JP", sans-serif;
@@ -21,8 +20,18 @@ $DEFAULT_COLOR01: #342622;
 $DEFAULT_COLOR02: #A99886;
 $SITE_BG01: #FFF;
 
-@mixin SP {@media (max-width: $RES_WID_SMALL01) and (max-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
-@mixin PC {@media (min-width: $RES_WID_SMALL01) and (min-aspect-ratio: $RESPONSIVE_ASPECT) {@content;}}
+@mixin SP {
+  @media (max-width: 767px) and (max-aspect-ratio: $RESPONSIVE_ASPECT) {
+    @content;
+  }
+}
+
+// ✅ PC：768px 以上
+@mixin PC {
+  @media (min-width: 768px) and (min-aspect-ratio: $RESPONSIVE_ASPECT) {
+    @content;
+  }
+}
 
 // vwsp: スマホ用 vw変換
 @function vwsp($size) {
@@ -143,4 +152,5 @@ $SITE_BG01: #FFF;
   margin: 0 auto;
   padding-left: vwpc($padding);
   padding-right: vwpc($padding);
+  box-sizing: border-box;
 }

@@ -2,6 +2,83 @@
 @use "../../../assets/scss/s_config" as config;
 
 .p-topNews01 {
+    padding: 30svh 0;
+
+    .block.menu {
+        width: config.vwpc(240);
+        .area.contents {
+            padding-left: config.vwpc(60);
+            .title {
+                display: flex;
+                flex-direction: column;
+                gap: config.vwpc(10);
+                span {
+                    display: block;
+                    line-height: 1.0;
+                }
+                .en {
+                    font-family: config.$DF_EN_FONT;
+                    font-weight: 200;
+                    @include config.fontPc(60);
+                    color: #B5A49E;
+                    @include config.SP {
+                        @include config.fontSp(34);
+                    }
+                }
+                .jp {
+                    @include config.fontPc(16);
+                    color: #B5A49E;
+                    @include config.SP {
+                        @include config.fontSp(12);
+                    }
+                }
+            }
+        }
+    }
     
+    .block.contents {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - config.vwpc(240));
+        // padding: 100svh 0;
+        
+        .item {
+            display: flex;
+            align-items: center;
+            gap: config.vwpc(20);
+
+            padding: config.vwpc(20) 0;
+            border-bottom: 1px solid #F1F1F1;
+            .top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .date {
+                    @include config.fontPc(16);
+                }
+                .tag {
+                    @include config.fontPc(14);
+                }
+            }
+            .title {
+                @include config.fontPc(20);
+                margin-bottom: config.vwpc(10);
+            }
+            .text {
+                @include config.fontPc(16);
+            }
+            .image {
+                overflow: hidden;
+                width: config.vwpc(360);
+                border-radius: config.vwpc(10);
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        
+    }
 }
 
