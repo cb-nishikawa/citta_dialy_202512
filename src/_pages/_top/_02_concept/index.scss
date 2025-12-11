@@ -27,7 +27,11 @@
         .block.scroll {
             .area.title {
                 position: fixed;
-                
+                .btn {
+                    display: block;
+                    position: fixed;
+                }
+               
             }
              .area.items {
                 .content {
@@ -70,6 +74,17 @@
                 color: #FFF;
                 @include config.SP {
                     font-size: config.vwsp(12);
+                }
+            }
+            .btn {
+                display: none;
+                position: absolute;
+                bottom: config.vwpc(60);
+                right: config.vwpc(60);
+                @include config.SP {
+                    display: block;
+                    position: static !important;
+                    margin-top: config.vwsp(20);
                 }
             }
         }

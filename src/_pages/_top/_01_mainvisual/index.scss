@@ -18,17 +18,17 @@ $imageFadeAnimationTime: 0.7s;
     &.is-end {
          .block.contents {
             .area.bg {
-                top: config.vwpc(20);
-                left: config.vwpc(20);
-                width: calc(100% - #{config.vwpc(40)});
-                height: calc(100% - #{config.vwpc(40)});
+                // top: config.vwpc(20);
+                // left: config.vwpc(20);
+                // width: calc(100% - #{config.vwpc(40)});
+                // height: calc(100% - #{config.vwpc(40)});
 
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    top: config.vwsp(30);
-                    left: config.vwsp(30);
-                    width: calc(100% - #{config.vwsp(60)});
-                    height: calc(100% - #{config.vwsp(60)});
-                }
+                // @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                //     top: config.vwsp(30);
+                //     left: config.vwsp(30);
+                //     width: calc(100% - #{config.vwsp(60)});
+                //     height: calc(100% - #{config.vwsp(60)});
+                // }
             }
         }
     }
@@ -36,16 +36,16 @@ $imageFadeAnimationTime: 0.7s;
     &.is-scroll {
         .block.contents {
             .area.bg {
-                top: config.vwpc(20);
-                left: config.vwpc(20);
-                width: calc(100% - #{config.vwpc(40)});
-                height: calc(100% - #{config.vwpc(40)});
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
-                    top: config.vwsp(30);
-                    left: config.vwsp(30);
-                    width: calc(100% - #{config.vwsp(60)});
-                    height: calc(100% - #{config.vwsp(60)});
-                }
+                // top: config.vwpc(20);
+                // left: config.vwpc(20);
+                // width: calc(100% - #{config.vwpc(40)});
+                // height: calc(100% - #{config.vwpc(40)});
+                // @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                //     top: config.vwsp(30);
+                //     left: config.vwsp(30);
+                //     width: calc(100% - #{config.vwsp(60)});
+                //     height: calc(100% - #{config.vwsp(60)});
+                // }
             }
             .area.scroll {
                 opacity: 0;

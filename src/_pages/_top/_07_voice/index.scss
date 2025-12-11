@@ -3,6 +3,7 @@
 .p-topVoice01 {
     position: relative;
     z-index: 100;
+    margin-bottom: config.vwpc(120);
     &>.componentWrapper {
         position: relative;
         @include config.contentsWidth();
