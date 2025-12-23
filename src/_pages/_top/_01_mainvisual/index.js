@@ -8,7 +8,12 @@ function init(_g) {
 
 	const contentsTarget = target.querySelector("[data-target='contentsTarget']");
 	const images = target.querySelectorAll(".area.bg .item");
+	const scrollDisc = target.querySelector(".area.scroll .disc");
 	const btnArea = target.querySelector(".area.btn");
+
+	const lineLineAnimationTime = 10;
+
+	target.style.setProperty('--lineLineAnimationTime', `${lineLineAnimationTime}s`);
 
 	// imagesの枚数分btnAreaにdiv.btnを追加
 	images.forEach(() => {
@@ -26,7 +31,7 @@ function init(_g) {
 		btnArea.appendChild(btn);
 	});
 	
-	_g.gsap.to(target, {
+	_g.gsap.to(contentsTarget, {
 		scrollTrigger: {
 			trigger: contentsTarget,
 			start: "top top",
@@ -82,7 +87,7 @@ function init(_g) {
 		});
 		lineAnimation[index] = _g.gsap.fromTo(btn.querySelector('.line'), { scaleX: 0 }, {
 			scaleX: 1,
-			duration: 5,
+			duration: lineLineAnimationTime,
 			ease: 'linear',
 			transformOrigin: 'left',
 			paused: true,
@@ -136,6 +141,31 @@ function init(_g) {
 			ctrlTarget.classList.add('image1');
 		}, 100);
 	});
+
+	if (scrollDisc) {
+		const discAnimDuration = 1.5;
+		const discRect = scrollDisc.getBoundingClientRect();
+		const discSize = Math.max(discRect.width, discRect.height);
+		const discAnimDistance = discSize * 2.5;
+
+		_g.gsap.set(scrollDisc, { y: 0, opacity: 1 });
+
+		const discAnim = _g.gsap.to(scrollDisc, {
+			y: discAnimDistance,
+			opacity: 0,
+			duration: discAnimDuration,
+			ease: "power2.in",
+			repeat: -1,
+			repeatDelay: 0.3,
+			onRepeat: function() {
+				_g.gsap.fromTo(
+					scrollDisc,
+					{ y: 0, opacity: 0 },
+					{ opacity: 1, duration: 0.4, ease: "power1.out" }
+				);
+			}
+		});
+	}
 }
 
 // ここから外部用エクスポート

@@ -1,9 +1,7 @@
 @use "../../../assets/scss/s_config" as config;
 
-$imageLngth: 5;
-$lineLineAnimationTime: 5.0s;
-$lineSizeAnimationTime: 0.3s;
-$imageFadeAnimationTime: 0.7s;
+$imageLength: 5;
+
 
 .p-topMainvisual01 {
     position: relative;
@@ -12,7 +10,13 @@ $imageFadeAnimationTime: 0.7s;
     height: 100svh;
     box-sizing: border-box;
     background-color: #FFF;
+    background-image: url("../../../assets/image/top/top_mainvisual_texture01.webp");
+    background-size: config.vwpc(80);
     @include config.fontPc(18);
+
+    --lineLineAnimationTime: 10s;
+    --lineSizeAnimationTime: 0.3s;
+    --imageFadeAnimationTime: 0.7s;
 
 
     &.is-end {
@@ -23,7 +27,7 @@ $imageFadeAnimationTime: 0.7s;
                 // width: calc(100% - #{config.vwpc(40)});
                 // height: calc(100% - #{config.vwpc(40)});
 
-                // @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                // @include config.SP {
                 //     top: config.vwsp(30);
                 //     left: config.vwsp(30);
                 //     width: calc(100% - #{config.vwsp(60)});
@@ -40,12 +44,15 @@ $imageFadeAnimationTime: 0.7s;
                 // left: config.vwpc(20);
                 // width: calc(100% - #{config.vwpc(40)});
                 // height: calc(100% - #{config.vwpc(40)});
-                // @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                // @include config.SP {
                 //     top: config.vwsp(30);
                 //     left: config.vwsp(30);
                 //     width: calc(100% - #{config.vwsp(60)});
                 //     height: calc(100% - #{config.vwsp(60)});
                 // }
+            }
+            .area.nav {
+                opacity: 0;
             }
             .area.scroll {
                 opacity: 0;
@@ -62,45 +69,47 @@ $imageFadeAnimationTime: 0.7s;
         align-items: center;
         box-sizing: border-box;
 
+        position: relative;
+
         width: 100%;
         height: 100%;
 
-        @for $i from 1 through $imageLngth {
+        @for $i from 1 through $imageLength {
             &.image#{$i} .area.bg .item.image#{$i} {
                 z-index: 10;
                 opacity: 1 !important;
-                scale: 1.04;
-                transition:  opacity $imageFadeAnimationTime ease, scale $lineLineAnimationTime linear;
+                scale: 1.1;
+                transition:  opacity var(--imageFadeAnimationTime) ease, scale var(--lineLineAnimationTime) linear;
             }
         }
 
        
-        &:not(.image1) .area.lead {
+        // &:not(.image1) .area.lead {
             
-            @media (min-width: config.$RES_WID_SMALL01) and (min-aspect-ratio: 3/4) {
-                // top: config.vwpc(100);   
-                gap: config.vwpc(20);
-                .logo {
-                    width: config.vwpc(260);
-                }
-                .text {
-                    @include config.fontPc(13);
-                }
-            }
-        }
+        //     @media (min-width: config.$RES_WID_SMALL01) and (min-aspect-ratio: 3/4) {
+        //         // top: config.vwpc(100);   
+        //         gap: config.vwpc(20);
+        //         .logo {
+        //             width: config.vwpc(260);
+        //         }
+        //         .text {
+        //             @include config.fontPc(13);
+        //         }
+        //     }
+        // }
 
         .area.bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             overflow: hidden;
+            position: absolute;
+            top: config.vwpc(20);
+            left: config.vwpc(20);
+            width: calc(100% - #{config.vwpc(40)});
+            height: calc(100% - #{config.vwpc(40)});
             border-radius: config.vwpc(16);
 
-            transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease, border-radius $imageFadeAnimationTime ease;
+            transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease, border-radius var(--imageFadeAnimationTime) ease;
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            @include config.SP {
                 top: config.vwsp(5);
                 left: config.vwsp(5);
                 width: calc(100% - #{config.vwsp(10)});
@@ -119,7 +128,7 @@ $imageFadeAnimationTime: 0.7s;
                 width: 100%;
                 height: 100%;
 
-                transition:  opacity $imageFadeAnimationTime ease, scale $lineLineAnimationTime 0.3s linear;
+                transition:  opacity var(--imageFadeAnimationTime) ease, scale var(--lineLineAnimationTime) 0.3s linear;
 
                 
                 img {
@@ -137,6 +146,7 @@ $imageFadeAnimationTime: 0.7s;
                 object-fit: cover;
             }
         }
+        
         .area.btn {
             display: flex;
             align-items: center;
@@ -148,7 +158,7 @@ $imageFadeAnimationTime: 0.7s;
             left: config.vwpc(60);
 
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            @include config.SP {
                 gap: config.vwsp(5);
                 bottom: config.vwsp(160);
                 left: 50%;
@@ -157,10 +167,10 @@ $imageFadeAnimationTime: 0.7s;
                 box-sizing: border-box;
             }
 
-            @for $i from 1 through $imageLngth {
+            @for $i from 1 through $imageLength {
                 &.image#{$i} .btn.image#{$i} {
                     width: config.vwpc(200);
-                    @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                    @include config.SP {
                         width: 100%;
                     }
                     .line {
@@ -176,9 +186,9 @@ $imageFadeAnimationTime: 0.7s;
                 width: config.vwpc(30);
                 height: config.vwpc(2);
                 background-color: #CDCDCD;
-                transition: all $lineSizeAnimationTime ease;
+                transition: all var(--lineSizeAnimationTime) ease;
 
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                @include config.SP {
                     width: 20%;
                     height: config.vwsp(1);
                 }
@@ -205,17 +215,57 @@ $imageFadeAnimationTime: 0.7s;
                 }
             }
         }
+
+        .area.nav {
+            position: absolute;
+            z-index: 1000;
+            padding-right: 0;
+            top: config.vwpc(80);
+            left: config.vwpc(80);
+            transition: opacity 0.3s ease, gap var(--imageFadeAnimationTime) ease, top var(--imageFadeAnimationTime) ease, right var(--imageFadeAnimationTime) ease;
+
+            @include config.SP {
+                display: none;
+            }
+
+            ul {
+                display: flex;
+                gap: config.vwpc(30);
+                flex-direction: column;
+                gap: config.vwpc(30);
+            }
+            li {
+                color: config.$DEFAULT_COLOR02 !important;
+                font-family: config.$DF_EN_FONT;
+                font-weight: 400;
+                @include config.fontPc(36);
+                line-height: 1.0;
+                letter-spacing: 0.05em;
+            }
+        }
+
         .area.scroll {
-            position: fixed;
+            display: flex;
+            align-items: flex-start;
+            gap: config.vwpc(8);
+
+            position: absolute;
             top: config.vwpc(520);
-            left: config.vwpc(60);
+            left: config.vwpc(80);
+            z-index: 1000;
 
             transition: opacity 0.3s ease;
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            @include config.SP {
                 top: config.vwsp(280);
                 left: 50%;
                 transform: translateX(-50%);
+            }
+            .disc {
+                width: config.vwpc(6);
+                height: config.vwpc(6);
+                background-color: config.$DEFAULT_COLOR02;
+                border-radius: 100px;
             }
             .text {
                 color: config.$DEFAULT_COLOR02;
@@ -224,14 +274,14 @@ $imageFadeAnimationTime: 0.7s;
                 font-weight: 400;
                 line-height: 1.0;
                 letter-spacing: 0.05em;
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                @include config.SP {
                     @include config.fontSp(16);
                 }
             }
         }
         .area.lead {
             position: fixed;
-            top: config.vwpc(160);
+            top: config.vwpc(120);
             right: config.vwpc(120);
             z-index: 100;
 
@@ -240,10 +290,10 @@ $imageFadeAnimationTime: 0.7s;
             align-items: center;
             gap: config.vwpc(40);
 
-            transition: opacity 0.3s ease, gap $imageFadeAnimationTime ease, top $imageFadeAnimationTime ease, right $imageFadeAnimationTime ease;
+            transition: opacity 0.3s ease, gap var(--imageFadeAnimationTime) ease, top var(--imageFadeAnimationTime) ease, right var(--imageFadeAnimationTime) ease;
 
 
-            @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+            @include config.SP {
                 top: config.vwsp(100);
                 right: 50%;
                 transform: translateX(50%);
@@ -251,8 +301,8 @@ $imageFadeAnimationTime: 0.7s;
 
             .logo {
                 width: config.vwpc(430);
-                transition: width $imageFadeAnimationTime ease;
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                transition: width var(--imageFadeAnimationTime) ease;
+                @include config.SP {
                     width: config.vwsp(200) !important;
                 }
                 img {
@@ -263,9 +313,17 @@ $imageFadeAnimationTime: 0.7s;
             .text {
                 @include config.fontPc(16);
                 text-align: center;
-                transition: font-size $imageFadeAnimationTime ease;
+                letter-spacing: 0.2em;
+                transition: font-size var(--imageFadeAnimationTime) ease;
 
-                @media (max-width: config.$RES_WID_SMALL01) and (max-aspect-ratio: 3/4) {
+                .is-sp {
+                    display: none;
+                    @include config.SP {
+                        display: inline;
+                    }
+                }
+
+                @include config.SP {
                     @include config.fontSp(10);
                 }
             }
@@ -282,13 +340,16 @@ $imageFadeAnimationTime: 0.7s;
                 transform: translateX(50%);
             }
 
-             a {
+            a {
                 display: block;
                 width: config.vwpc(520);
                 height: config.vwpc(192);
                 background-color: #FFF;
                 padding: config.vwpc(4);
                 box-sizing: border-box;
+    
+                box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.15);
+                border-radius: config.vwpc(10);
 
                 @include config.SP {
                     width: config.vwsp(300);
@@ -299,6 +360,7 @@ $imageFadeAnimationTime: 0.7s;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    border-radius: config.vwpc(8);
                 }
             }
         }
