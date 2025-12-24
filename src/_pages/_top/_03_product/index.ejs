@@ -1,101 +1,67 @@
 <section class="p-topProduct01" data-target="topProduct01">
     <div class="componentWrapper">
         <div class="block title" data-target="leftTarget">
-            <p class="topSectionTitle01">PRODUCT</p>
-            <p class="subTitle">究極にシンプルでずっと使いたくなる作り</p>
+            <%- include('../_topSectionTitle01/index.ejs', { 
+                title: 'PRODUCT',
+                text: '究極にシンプルでずっと使いたくなる作り'
+            }) %>
         </div>
         <div class="block contents" data-target="rightTarget">
-            <div class="item" data-target="item">
-                <h4 class="title">
-                    <span class="en">WEEKLY</span>
-                    <span class="jp">ウィークリー</span>
-                </h4>
-                <p class="image">
-                    <%- include('../../../_components/_common/_image/index.ejs', { 
-                        imagePath: '/assets/image/top/top_product_image01.png',
-                        alt: '',
-                        sizes: '33vw',
-                        baseWidth: 1120
-                    }) %>
-                </p>
-                <div class="textWrapper">
-                    <p class="text">24時間のバーチカル時間軸で、自分の1週間を“ひと目で”俯瞰できるのが最大の魅力です。<br>
-                    毎朝、「本当は何時に起きたい？」と自分に問いかけて、その時間をまず書いてみましょう。習慣にしたいことも、書くことで意識が変わります。</p>
-                    <p class="scrollPoint"></p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <h4 class="title">
-                    <span class="en">WAKUWAKU LIST</span>
-                    <span class="jp">ワクワクリスト</span>
-                </h4>
-                <p class="image">
-                    <%- include('../../../_components/_common/_image/index.ejs', { 
-                        imagePath: '/assets/image/top/top_product_image02.png',
-                        alt: '',
-                        sizes: '33vw',
-                        baseWidth: 1120
-                    }) %>
-                </p>
-                <div class="textWrapper">
-                    <p class="text">ワクワクリストが、すべての原動力！ まずは「やりたい！」と思うことをすべて書き出しましょう。 プライベートも仕事も家庭のことも、大小・期間を問わずなんでもOK。</p>
-                    <p class="scrollPoint"></p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <h4 class="title">
-                    <span class="en">MONTHLY</span>
-                    <span class="jp">マンスリー</span>
-                </h4>
-                <p class="image">
-                    <%- include('../../../_components/_common/_image/index.ejs', { 
-                        imagePath: '/assets/image/top/top_product_image03.png',
-                        alt: '',
-                        sizes: '33vw',
-                        baseWidth: 1120
-                    }) %>
-                </p>
-                <div class="textWrapper">
-                    <p class="text">見通し感を持つために２ヶ月見渡せるマンスリーにしてあります。ここには時間を書かないようにしましょう。</p>
-                    <p class="scrollPoint"></p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <h4 class="title">
-                    <span class="en">PROJECT SHEE</span>
-                    <span class="jp">プロジェクトシート</span>
-                </h4>
-                <p class="image">
-                    <%- include('../../../_components/_common/_image/index.ejs', { 
-                        imagePath: '/assets/image/top/top_product_image04.png',
-                        alt: '',
-                        sizes: '33vw',
-                        baseWidth: 1120
-                    }) %>
-                </p>
-                <div class="textWrapper">
-                    <p class="text">ここは自分の目標を２ヶ月で見渡したいときにピッタリです。 </p>
-                    <p class="scrollPoint"></p>
-                </div>
-            </div>
-            <div class="item" data-target="item">
-                <h4 class="title">
-                    <span class="en">3YEAR CALENDAR</span>
-                    <span class="jp">3年カレンダー</span>
-                </h4>
-                <p class="image">
-                    <%- include('../../../_components/_common/_image/index.ejs', { 
-                        imagePath: '/assets/image/top/top_product_image05.png',
-                        alt: '',
-                        sizes: '33vw',
-                        baseWidth: 1120
-                    }) %>
-                </p>
-                <div class="textWrapper">
-                    <p class="text">ここは自分の目標を２ヶ月で見渡したいときにピッタリです。 </p>
-                    <p class="scrollPoint"></p>
-                </div>
-            </div>
+            <%- include('./item.ejs', { 
+                enTitle: 'WEEKLY',
+                jpTitle: 'ウィークリー',
+                imagePath: '/assets/image/top/top_product_image01.png',
+                alt: '',
+                sizes: '33vw',
+                baseWidth: 1120,
+                description: '24時間のバーチカル時間軸で、自分の1週間を“ひと目で”俯瞰できるのが最大の魅力です。<br>\n毎朝、「本当は何時に起きたい？」と自分に問いかけて、その時間をまず書いてみましょう。習慣にしたいことも、書くことで意識が変わります。'
+            }) %>
+            <%- include('./item.ejs', { 
+                enTitle: 'WAKUWAKU LIST',
+                jpTitle: 'ワクワクリスト',
+                imagePath: '/assets/image/top/top_product_image02.png',
+                alt: '',
+                sizes: '33vw',
+                baseWidth: 1120,
+                description: 'ワクワクリストが、すべての原動力！ まずは「やりたい！」と思うことをすべて書き出しましょう。 プライベートも仕事も家庭のことも、大小・期間を問わずなんでもOK。'
+            }) %>
+            <%- include('./item.ejs', { 
+                enTitle: 'MONTHLY',
+                jpTitle: 'マンスリー',
+                imagePath: '/assets/image/top/top_product_image03.png',
+                alt: '',
+                sizes: '33vw',
+                baseWidth: 1120,
+                description: '見通し感を持つために２ヶ月見渡せるマンスリーにしてあります。ここには時間を書かないようにしましょう。'
+            }) %>
+            <%- include('./item.ejs', { 
+                enTitle: 'PROJECT SHEET',
+                jpTitle: 'プロジェクトシート',
+                imagePath: '/assets/image/top/top_product_image04.png',
+                alt: '',
+                sizes: '33vw',
+                baseWidth: 1120,
+                description: 'ここは自分の目標を２ヶ月で見渡したいときにピッタリです。'
+            }) %>
+
+            <%- include('./item.ejs', { 
+                enTitle: '3YEAR CALENDAR',
+                jpTitle: '3年カレンダー',
+                imagePath: '/assets/image/top/top_product_image05.png',
+                alt: '',
+                sizes: '33vw',
+                baseWidth: 1120,
+                description: '年表カレンダーは3年分の連休が一目で分かり、長期の予定を立てやすいのが特徴です。'
+            }) %>
+         
+        </div>
+
+        <div class="block btn">
+            <%- include('../../../_components/_common/_btn01/index.ejs', { 
+                btnClass: 'btn is-black',
+                btnHref: '/product/',
+                btnText: 'DETAIL'
+            }) %>
         </div>
     </div>
 </section>

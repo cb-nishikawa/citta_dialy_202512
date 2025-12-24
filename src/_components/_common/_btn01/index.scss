@@ -1,0 +1,75 @@
+@use "../../../assets/scss/s_config" as config;
+ 
+.c-btn01 {
+    width: 100%;
+
+    &.is-blur {
+        a::after {
+            border: config.vwpc(2) solid rgba(243, 243, 243, 0.3);
+            backdrop-filter: blur(6px);
+        }
+    }
+    &.is-black {
+        a::after {
+            background-color: #000;
+        }
+    }
+    a {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: config.vwpc(54);
+        border-radius: 100px;
+        box-sizing: border-box;
+        text-align: center;
+
+        @include config.SP {
+            height: config.vwsp(48);
+        }
+
+        span {
+            display: block;
+            position: relative;
+            color: #FFF;
+            z-index: 100;
+            
+            font-family: config.$DF_EN_FONT;
+            font-weight: 700;
+            @include config.fontPc(16);
+            line-height: 1.0;
+            letter-spacing: 0.1em;
+
+            @include config.SP {
+                @include config.fontSp(12);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            right: config.vwpc(20);
+            top: 50%;
+            transform: translateY(-50%);
+            width: config.vwpc(16);
+            height: config.vwpc(16);
+            background-image: url("../../../assets/image/common/common_btn_arrow01.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 50;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            border-radius: 100px;
+        }
+    }
+}
+

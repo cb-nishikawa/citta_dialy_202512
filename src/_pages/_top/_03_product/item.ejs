@@ -1,0 +1,18 @@
+<div class="item" data-target="item">
+    <h4 class="title">
+        <span class="en"><%= enTitle %></span>
+        <span class="jp"><%= jpTitle %></span>
+    </h4>
+    <p class="image">
+        <%- include('../../../_components/_common/_image/index.ejs', { 
+            imagePath: imagePath,
+            alt: alt,
+            sizes: sizes,
+            baseWidth: baseWidth
+        }) %>
+    </p>
+    <div class="textWrapper">
+        <p class="text"><%= description %></p>
+        <!-- <p class="scrollPoint"></p> -->
+    </div>
+</div>

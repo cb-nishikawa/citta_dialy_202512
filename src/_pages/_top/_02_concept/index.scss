@@ -18,7 +18,9 @@
     &:has(.item:not(:nth-child(1)).is-active) {
          .topSectionTitle01 {
             @include config.PC {
-                @include config.fontPc(60);
+                .title {
+                    @include config.fontPc(60);    
+                }
             }
         }
     }
@@ -27,9 +29,14 @@
         .block.scroll {
             .area.title {
                 position: fixed;
+                
+                // .topSectionTitle01, .text {
+                //     opacity: 1;
+                // }
                 .btn {
                     display: block;
                     position: fixed;
+                    opacity: 1;
                 }
                
             }
@@ -68,22 +75,23 @@
 
             .topSectionTitle01 {
                 color: #FFF;
+                // opacity: 0;
+                // transition: opacity 0.4s 0.1s ease-in, font-size 1.0s ease;
             }
-            .text {
-                @include config.fontPc(24);
-                color: #FFF;
-                @include config.SP {
-                    font-size: config.vwsp(12);
-                }
-            }
+            
             .btn {
-                display: none;
+                opacity: 0;
                 position: absolute;
                 bottom: config.vwpc(60);
                 right: config.vwpc(60);
+                max-width: config.vwpc(240);
+
+                transition: opacity 0.4s 0.5s ease-in;
+
                 @include config.SP {
                     display: block;
                     position: static !important;
+                    max-width: config.vwsp(240);
                     margin-top: config.vwsp(20);
                 }
             }
@@ -133,6 +141,20 @@
                 &.is-active {
                     pointer-events: auto;
                     opacity: 1 !important;
+                    .content {
+                        .textBox {
+                            transform: translateY(0);
+                            transition: transform 0.5s 0.5s ease;
+                            &::after {
+                                opacity: 1;
+                                transition: opacity 0.5s 0.5s ease;
+                            }
+                            .inner {
+                                opacity: 1;
+                                transition: opacity 0.5s 0.5s ease;
+                            }
+                        }
+                    }
                 }
                 .content {
                     display: flex;
@@ -168,10 +190,13 @@
                         left: config.vwpc(60);
                         z-index: 10;
                         width: fit-content;
+                        max-width: config.vwpc(800);
                         padding: config.vwpc(40);
                         box-sizing: border-box;
                         color: #FFF;
                         border-radius: config.vwpc(20);
+                        transform: translateY(config.vwpc(20));
+                        transition: transform 0.3s ease;
                         @include config.SP {
                             bottom: 0;
                             left: 0;
@@ -180,8 +205,16 @@
                             border-radius: 0;
                         }
 
+                        .inner {
+                            position: relative;
+                            z-index: 100;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        }
+
                         &::after {
                             /* bg */
+                            opacity: 0;
                             content: "";
                             position: absolute;
                             top: 0;
@@ -193,6 +226,7 @@
 
                             background: rgba(0, 0, 0, 0.3);
                             backdrop-filter: blur(8px);
+                            transition: opacity 0.3s ease;
                         }
 
                         .title {

@@ -1,18 +1,7 @@
 @use "../../../assets/scss/s_config" as config;
 
 .p-topProduct01 {
-    
-
-    &.is-active, &.is-last-active {
-        &>.componentWrapper {
-            .block.title {
-                .topSectionTitle01 {
-                    @include config.fontPc(60);
-                }
-            }
-        }
-    }
-
+    margin-bottom: config.vwpc(160);
     &.is-last-active {
         .block.title {
             .images {
@@ -24,6 +13,14 @@
             }
         }
     }
+    &.is-active {
+        &>.componentWrapper {
+            .block.btn {
+                @include config.visible;
+            }
+        }
+        
+    }
 
     &>.componentWrapper {
         display: flex;
@@ -34,8 +31,6 @@
 
         @include config.contentsWidth();
 
-        padding: 0 config.vwpc(60) config.vwpc(120);
-
         box-sizing: border-box;
 
         .block.title {
@@ -43,6 +38,8 @@
             left: config.vwpc(60);
             width: calc(60svh * (560 / 700));
             height: 100%;
+            padding-top: config.vwpc(60);
+
 
             @media screen and (max-width: 1000px) {
                 width: calc(40svh * (560 / 700));
@@ -52,16 +49,6 @@
                 display: none;
             }
             
-
-            .topSectionTitle01 {
-                margin-bottom: config.vwpc(16);
-                padding-top: config.vwpc(60);
-                @include config.fontPc(140);
-                
-            }
-            .subTitle {
-                @include config.fontPc(24);
-            }
             .images {
                 position: relative;
                 height: 60svh;
@@ -137,6 +124,9 @@
                     display: block;
                     line-height: 1.0;
                     &.en {
+                        font-family: config.$DF_EN_FONT;
+                        font-weight: 500;
+                        letter-spacing: 0.1em;
                         @include config.fontPc(28);
                         @include config.SP {
                             @include config.fontSp(24);
@@ -165,6 +155,9 @@
                 }
             }
         }
+        .images {
+            filter: drop-shadow(0px 0px 30px rgba(115, 90, 64, 0.15));
+        }
         .image {
             overflow: hidden;
             display: flex;
@@ -175,6 +168,8 @@
             height: config.vwpc(300);
             background-color: #CFCFCF;
             border-radius: config.vwpc(16);
+
+
             img {
                 position: absolute;
                 top: 0;
@@ -183,6 +178,16 @@
                 height: 100%;
                 object-fit: cover;
             }
+        }
+        .block.btn {
+            @include config.hidden;
+            position: fixed;
+            bottom: config.vwpc(60);
+            right: config.vwpc(60);
+            z-index: 100;
+            max-width: config.vwpc(240);
+            width: 100%;
+            transition: opacity 0.4s ease-in;
         }
     }
 

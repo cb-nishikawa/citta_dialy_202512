@@ -1,6 +1,8 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
 import keenslider from "keen-slider";
 
 import { debugSet } from "./_debugSet/";
@@ -13,12 +15,14 @@ import { asynchronousTransition } from "./_asynchronousTransition/";
 const console = true;
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 // ここからグローバルセットの生成
 function globalSet() {
     return {
         gsap: gsap,
         ScrollTrigger: ScrollTrigger,
+        SplitText: SplitText,
         debug: debugSet(),
         keenslider: keenslider,
         resourceLoader: resourceLoader,

@@ -1,3 +1,4 @@
+import { init as _topSectionTitle01 } from "./_topSectionTitle01/";
 
 import { init as _01_mainvisual } from "./_01_mainvisual/";
 import { init as _02_concept } from "./_02_concept/";
@@ -11,11 +12,14 @@ function init(_g) {
 	if (!target) return;
 	
 	if (_g.console) console.log("__topInit loaded");
+	_topSectionTitle01(_g);
 	_01_mainvisual(_g);
 	_02_concept(_g);
 	_03_product(_g);
 	_04_dialy(_g);
 	_05_howto(_g);
+
+
 }
 
 // ここから外部用エクスポート

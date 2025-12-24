@@ -2,11 +2,15 @@
     <div class="componentWrapper">
         <div class="block scroll" data-target="scrollTarget">
             <div class="area title" data-target="titleTarget">
-                <h2 class="topSectionTitle01">CONCEPT</h2>
-                <p class="text">初めて１年間、続いた手帳</p>
-                <p class="btn">
-                    <a href="">DETAIL</a>
-                </p>
+                <%- include('../_topSectionTitle01/index.ejs', { 
+                    title: 'CONCEPT',
+                    text: '初めて１年間、続いた手帳'
+                }) %>
+                <%- include('../../../_components/_common/_btn01/index.ejs', { 
+                    btnClass: 'btn is-blur',
+                    btnHref: '/concept/',
+                    btnText: 'DETAIL'
+                }) %>
             </div>
             <div class="area items" data-target="itemsTarget">
                 <div class="item" data-target="item">
@@ -18,7 +22,7 @@
                                 sizes: '100vw',
                                 baseWidth: 2880
                             }) %>
-                        <%- include('../../../_components/_common/_image/index.ejs', { 
+                            <%- include('../../../_components/_common/_image/index.ejs', { 
                                 imagePath: '/assets/image/top/top_concept_overlay.png',
                                 alt: '',
                                 sizes: '30vw',
@@ -26,8 +30,10 @@
                             }) %>
                         </div>
                         <div class="textBox">
-                            <h3 class="title">もう「どうせ続かない」と諦めていた人が選ぶ。<br>
-                                楽しいから、自然と続く。続くから自分が好きになる。</h3>
+                            <div class="inner">
+                                <h3 class="title">もう「どうせ続かない」と諦めていた人が選ぶ。<br>
+                                    楽しいから、自然と続く。続くから自分が好きになる。</h3>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -48,9 +54,11 @@
                             }) %>
                         </div>
                         <div class="textBox">
-                            <h3 class="title"><span>01</span>やりたいことを先に書くワクワクリスト</h3>
-                            <p class="text">心が動いたことを、まず書いてみる。「やらなきゃ」じゃなく、<br>
-                                「やってみたい」から毎日が動き出します。</p>
+                            <div class="inner">
+                                <h3 class="title"><span>01</span>やりたいことを先に書くワクワクリスト</h3>
+                                <p class="text">心が動いたことを、まず書いてみる。「やらなきゃ」じゃなく、<br>
+                                    「やってみたい」から毎日が動き出します。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,8 +79,10 @@
                             }) %>
                         </div>
                         <div class="textBox">
-                            <h3 class="title"><span>02</span>24時間×7日のウィークリーバーチカル</h3>
-                            <p class="text">1週間をひと目で見渡せる、24時間軸のスケジュールページ。</p>
+                            <div class="inner">
+                                <h3 class="title"><span>02</span>24時間×7日のウィークリーバーチカル</h3>
+                                <p class="text">1週間をひと目で見渡せる、24時間軸のスケジュールページ。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,8 +103,10 @@
                             }) %>
                         </div>
                         <div class="textBox">
-                            <h3 class="title"><span>03</span>4</h3>
-                            <p class="text">44444444444444</p>
+                            <div class="inner">
+                                <h3 class="title"><span>03</span>究極にシンプルでずっと使いたくなる作り</h3>
+                                <p class="text">余計な装飾やワークは一切なし。書きやすくて、自由度が高い設計。それが、気づけば「毎日開いてる」理由です。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,8 +127,34 @@
                             }) %>
                         </div>
                         <div class="textBox">
-                            <h3 class="title"><span>04</span>5</h3>
-                            <p class="text">アイテム5</p>
+                            <div class="inner">
+                                <h3 class="title"><span>04</span>2ヶ月見開きのマンスリー</h3>
+                                <p class="text">見開きで翌月までの予定が一目で確認。時間の流れを俯瞰しながら計画を立てられます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item" data-target="item">
+                    <div class="content">
+                        <div class="bg">
+                            <%- include('../../../_components/_common/_image/index.ejs', { 
+                                imagePath: '/assets/image/top/top_concept_bg06.png',
+                                alt: '',
+                                sizes: '100vw',
+                                baseWidth: 2880
+                            }) %>
+                            <%- include('../../../_components/_common/_image/index.ejs', { 
+                                imagePath: '/assets/image/top/top_concept_overlay.png',
+                                alt: '',
+                                sizes: '30vw',
+                                baseWidth: 2880
+                            }) %>
+                        </div>
+                        <div class="textBox">
+                            <div class="inner">
+                                <h3 class="title"><span>05</span>上質な紙質で、180度開く</h3>
+                                <p class="text">万年筆でも裏抜けしにくい、上質なオリジナル用紙を使用。</p>
+                            </div>
                         </div>
                     </div>
                 </div>

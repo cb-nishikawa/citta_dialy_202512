@@ -49,7 +49,7 @@ function init(_g) {
 			scrollTrigger: {
 				trigger: item,
 				start: "top center",
-				end: "bottom center",
+				// end: "bottom center",
 				onUpdate: (self) => {
 				},
 				toggleClass: {
@@ -81,25 +81,26 @@ function init(_g) {
 				// 画面上部からの距離と、画面中央との距離を取得
 				const fromCenter = rect.top + rect.height / 2 - window.innerHeight / 2;
 				const scrollPoint = item.querySelector('.scrollPoint');
-				if (scrollPoint) {
-					const halfWindow = window.innerHeight / 2;
-					const threshold = 30; // 中央から±60px以内を1とする閾値
-					let normalized;
-					if (Math.abs(fromCenter) <= threshold) {
-						normalized = 1;
-					} else {
-						// 閾値を超えたら0に向かって減衰
-						const maxDist = halfWindow - threshold;
-						normalized = 1 - Math.min(1, (Math.abs(fromCenter) - threshold) / maxDist);
-						normalized = Math.max(0, normalized);
-					}
-					scrollPoint.textContent = `normalized: ${normalized.toFixed(2)}`;
-
-					_g.gsap.to(item, {
-						opacity: normalized.toFixed(2),
-						ease: "none",
-					});
+				
+				const halfWindow = window.innerHeight / 2;
+				const threshold = 30; // 中央から±60px以内を1とする閾値
+				let normalized;
+				if (Math.abs(fromCenter) <= threshold) {
+					normalized = 1;
+				} else {
+					// 閾値を超えたら0に向かって減衰
+					const maxDist = halfWindow - threshold;
+					normalized = 1 - Math.min(1, (Math.abs(fromCenter) - threshold) / maxDist) * 1.11;
+					normalized = Math.max(0, normalized);
 				}
+				if (scrollPoint) {
+					scrollPoint.textContent = `normalized: ${normalized.toFixed(2)}`;
+				}
+
+				_g.gsap.to(item, {
+					opacity: normalized.toFixed(2),
+					ease: "none",
+				});
 			}
 		});
 	});

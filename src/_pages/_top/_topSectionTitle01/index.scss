@@ -1,0 +1,33 @@
+@use "../../../assets/scss/s_config" as config;
+
+.topSectionTitle01 {
+    .title {
+        margin-bottom: config.vwpc(16);
+        font-family: config.$DF_EN_FONT;
+        font-weight: 200;
+        @include config.fontPc(140);
+        letter-spacing: 0.1em;
+        line-height: 1.0;
+        white-space: nowrap;
+        
+        transition: font-size 0.4s 0.1s cubic-bezier(.27,.1,.97,.31);
+
+        .is-active &, .is-last-active &, .p-topConcept01:has(.item:not(:nth-child(1)).is-active) & {
+            @include config.PC {
+                @include config.fontPc(60);
+            }
+        }
+
+        @include config.SP {
+            @include config.fontSp(50);
+        }
+    }
+    .text {
+        @include config.fontPc(24);
+        white-space: nowrap;
+
+        @include config.SP {
+            font-size: config.vwsp(12);
+        }
+    }
+}
