@@ -240,7 +240,6 @@ $imageLength: 5;
                 font-weight: 400;
                 @include config.fontPc(36);
                 line-height: 1.0;
-                letter-spacing: 0.05em;
             }
         }
 
@@ -273,7 +272,6 @@ $imageLength: 5;
                 @include config.fontPc(16);
                 font-weight: 400;
                 line-height: 1.0;
-                letter-spacing: 0.05em;
                 @include config.SP {
                     @include config.fontSp(16);
                 }
@@ -313,7 +311,6 @@ $imageLength: 5;
             .text {
                 @include config.fontPc(16);
                 text-align: center;
-                letter-spacing: 0.2em;
                 transition: font-size var(--imageFadeAnimationTime) ease;
 
                 .is-sp {

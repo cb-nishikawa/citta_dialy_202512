@@ -1,11 +1,11 @@
 function init(_g) {
-	const target = document.querySelector("[data-target='topDialy01']");
+	const target = document.querySelector("[data-target='topDiary01']");
 	if (!target) return;
 
 	const scrollTarget = target.querySelector("[data-target='scrollTarget']");
 	const contentsTarget = target.querySelector("[data-target='contentsTarget']");
 
-	if (_g.console) console.log("___04_dialy loaded");
+	if (_g.console) console.log("___04_diary loaded");
 
 	_g.gsap.to(contentsTarget, {
 		scrollTrigger: {
@@ -25,11 +25,11 @@ function init(_g) {
 	const rightArrowClassCtrl = new _g.classController(["[data-rightArrowCtrl]"]);
 
 	leftArrow.addEventListener("click", () => {
-		rightArrowClassCtrl.order(["fifth", "fourth", "third", "second", "first"]);
+		rightArrowClassCtrl.order(["sixth", "fifth", "fourth", "third", "second", "first"], true);
 		if (_g.console) console.log("left arrow clicked");
 	});
 	rightArrow.addEventListener("click", () => {
-		leftArrowClassCtrl.order(["first", "second", "third", "fourth", "fifth"]);
+		leftArrowClassCtrl.order(["first", "second", "third", "fourth", "fifth", "sixth"], true);
 		if (_g.console) console.log("right arrow clicked");
 	});
 

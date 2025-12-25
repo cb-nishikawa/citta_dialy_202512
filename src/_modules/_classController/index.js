@@ -42,13 +42,13 @@ class classController {
     /**
      * 指定したクラス配列で順番に切り替える（1つだけ付与、他は消す）
      * @param {string[]|Set<string>} classes - 付与するクラス名の配列またはSet
+     * @param {boolean} reset - インデックスをリセットする場合true
      */
-    order(classes) {
+    order(classes, reset = false) {
         const classList = Array.isArray(classes)
             ? classes
             : (classes instanceof Set ? Array.from(classes) : [classes]);
-        // 初回のみ、現在のクラスを判定してインデックスをセット
-        if (typeof this._orderIndex !== 'number') {
+        if (reset || typeof this._orderIndex !== 'number') {
             let foundIndex = -1;
             if (this.targets.length > 0) {
                 const target = this.targets[0];
@@ -63,18 +63,15 @@ class classController {
         }
         const currentClass = classList[this._orderIndex % classList.length];
         this.targets.forEach(target => {
-            // すべての指定クラスを一度消す
             classList.forEach(cls => {
                 if (cls && typeof cls === 'string') {
                     target.classList.remove(cls);
                 }
             });
-            // 現在のクラスだけ付与
             if (currentClass && typeof currentClass === 'string') {
                 target.classList.add(currentClass);
             }
         });
-        // 次回呼び出し時に次のクラスへ
         this._orderIndex = (this._orderIndex + 1) % classList.length;
     }
     constructor(selectors) {

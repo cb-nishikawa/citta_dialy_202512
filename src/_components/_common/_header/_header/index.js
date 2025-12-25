@@ -14,6 +14,29 @@ function headerFunc(_g) {
 	header__humbergerBtn(_g, target);
 	header__scrollHidden(_g, target);
 	header__mainvisualOver(_g, target);
+	header__scrollOverWindow(_g, target);
+}
+
+// ブラウザの高さ以上スクロールしたらis-scrollクラスを付与・削除
+function header__scrollOverWindow(_g, _tg) {
+	function onScroll() {
+		const scrollY = window.scrollY || window.pageYOffset;
+		const winH = window.innerHeight;
+		if (scrollY > winH) {
+			if (!_tg.classList.contains("is-scroll")) {
+				_tg.classList.add("is-scroll");
+				if (_g.console) console.log("is-scroll set to true");
+			}
+		} else {
+			if (_tg.classList.contains("is-scroll")) {
+				_tg.classList.remove("is-scroll");
+				if (_g.console) console.log("is-scroll removed");
+			}
+		}
+	}
+	window.addEventListener("scroll", onScroll);
+	window.addEventListener("resize", onScroll);
+	onScroll();
 }
 
 function header__scrollHidden(_g, _tg) {

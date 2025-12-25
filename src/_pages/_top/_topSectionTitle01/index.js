@@ -19,6 +19,11 @@ function init(_g) {
 				onEnterBack: () => tl.play(),
 				onLeave: () => {
 					// 下に抜けるときは何もしない
+					
+				},
+				toggleClass: {
+					targets: tg,
+					className: "is-active"
 				},
 				onLeaveBack: () => {
 					// 上に戻るときはリバース
@@ -32,7 +37,7 @@ function init(_g) {
 			duration: 0.4, 
 			y: 20,
 			autoAlpha: 0,
-			stagger: 0.07
+			stagger: 0.05
 		})
 		.from(text.chars, {
 			duration: 0.3, 

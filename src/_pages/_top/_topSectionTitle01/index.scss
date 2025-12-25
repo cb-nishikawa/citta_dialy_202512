@@ -6,7 +6,6 @@
         font-family: config.$DF_EN_FONT;
         font-weight: 200;
         @include config.fontPc(140);
-        letter-spacing: 0.1em;
         line-height: 1.0;
         white-space: nowrap;
         

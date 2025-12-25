@@ -40,7 +40,6 @@
             font-weight: 700;
             @include config.fontPc(16);
             line-height: 1.0;
-            letter-spacing: 0.1em;
 
             @include config.SP {
                 @include config.fontSp(12);
@@ -60,6 +59,11 @@
             background-position: center;
             background-repeat: no-repeat;
             z-index: 50;
+            @include config.SP {
+                right: config.vwsp(15);
+                width: config.vwsp(12);
+                height: config.vwsp(12);
+            }
         }
 
         &::after {

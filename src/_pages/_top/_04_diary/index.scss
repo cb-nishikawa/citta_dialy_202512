@@ -1,6 +1,6 @@
 @use "../../../assets/scss/s_config" as config;
 
-.p-topDialy01 {
+.p-topDiary01 {
     position: relative;
     z-index: 100;
     height: 200svh;
@@ -48,6 +48,7 @@
         position: absolute;
         top: config.vwpc(60);
         left: config.vwpc(60);
+        z-index: 10;
 
         @include config.SP {
             width: 100%;
@@ -57,14 +58,12 @@
 
         .title {
             @include config.fontPc(46);
-            font-family: config.$DF_EN_FONT;
-            font-weight: 400;
             @include config.SP {
                 @include config.fontSp(18);
                 text-align: center;
             }
         }
-        .subTitle {
+        .text {
             @include config.fontPc(16);
             @include config.SP {
                 @include config.fontSp(12);
@@ -76,17 +75,30 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        height: 50svh;
-        aspect-ratio: 3 / 4;
+        width: config.vwpc(800);
+        height: config.vwpc(533);
+        // aspect-ratio: 3 / 4;
         transform: translate(-50%, -50%);
+        z-index: 0;
 
         @include config.SP {
-            width: 60svw;
-            height: auto;
-            max-width: 320px;
-            aspect-ratio: 3 / 4;
+            width: config.vwsp(468);
+            height: config.vwsp(312);
             transform: translate(-50%, calc(-50% - config.vwsp(80)));
+
+            
         }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        
 
         &.first .first {
             pointer-events: all;
@@ -108,6 +120,11 @@
             pointer-events: all;
             opacity: 1;
         }
+        &.sixth .sixth {
+            pointer-events: all;
+            opacity: 1;
+        }
+
         &.color01 .color01 {
             pointer-events: all;
             opacity: 1;
@@ -137,16 +154,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #CCC;
+            // background-color: #CCC;
             transition: opacity 0.5s ease;
           
-            
-            .color01 {
-                background-color: #F00;
-            }
-            .color02 {
-                background-color: #0F0;
-            }
             .color03 {
                 background-color: #00F;
             }
@@ -155,6 +165,11 @@
             }
             .color05 {
                 background-color: #0FF;
+            }
+        }
+        .second, .third, .fourth, .fifth, .sixth {
+            @include config.SP {
+                transform: translate(15%, 0);
             }
         }
     }
@@ -210,13 +225,13 @@
                     @include config.fontSp(11);
                 }
             }
-            &.first .first, &.second .second, &.third .third, &.fourth .fourth, &.fifth .fifth {
+            &.first .first, &.second .second, &.third .third, &.fourth .fourth, &.fifth .fifth, &.sixth .sixth {
                 display: block;
             }
         }
         .btnBox {
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: space-between;
             position: relative;
             z-index: 10;
@@ -258,27 +273,9 @@
                 }
             }
             .btn {
-                // width: config.vwpc(240);
                 width: config.vwpc(190);
                 @include config.SP {
                     width: 100%;
-                }
-
-                a {
-                    display: block;
-                    padding: config.vwpc(12);
-                    color: #FFF;
-                    border-radius: 100px;
-                    background-color: #000;
-                    text-decoration: none;
-                    font-family: config.$DF_EN_FONT;
-                    font-weight: 700;
-                    @include config.fontPc(14);
-                    text-align: center;
-                    @include config.SP {
-                        padding: config.vwsp(10);
-                        @include config.fontSp(11);
-                    }
                 }
             }
         }
@@ -322,7 +319,7 @@
         &.color04 .circle.color04,
         &.color05 .circle.color05 {
             &::before {
-                border: config.vwpc(4) solid #FFF;
+                border: config.vwpc(6) solid #FFF;
 
                 @include config.SP {
                     border: config.vwsp(4) solid #FFF;
@@ -336,8 +333,13 @@
             width: config.vwpc(40);
             height: config.vwpc(40);
             background-color: #EFEFEF;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border-radius: 100px;
             border: none;
+
+            filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.05));
 
             @include config.SP {
                 width: config.vwsp(24);
@@ -345,19 +347,19 @@
             }
 
             &.color01 {
-                background-color: #F00;
+                background-image: url("../../../assets/image/top/top_diary_color01.webp");
             }
             &.color02 {
-                background-color: #0F0;
+                background-image: url("../../../assets/image/top/top_diary_color02.webp");
             }
             &.color03 {
-                background-color: #00F;
+                background-image: url("../../../assets/image/top/top_diary_color03.webp");
             }
             &.color04 {
-                background-color: #FF0;
+                background-image: url("../../../assets/image/top/top_diary_color04.webp");
             }
             &.color05 {
-                background-color: #0FF;
+                background-image: url("../../../assets/image/top/top_diary_color05.webp");
             }
 
             &::before {
@@ -368,7 +370,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                border: config.vwpc(2) solid #C3C3C3;
+                border: config.vwpc(3) solid #C3C3C3;
                 box-sizing: border-box;
                 border-radius: 100px;
                 transition: border 0.3s ease;
@@ -416,7 +418,10 @@
                 left: 50%;
                 width: 30%;
                 height: 30%;
-                background-color: #F00;
+                background-image: url("../../../assets/image/common/common_btn_arrow01.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
                 transform: translate3d(-50%, -50%, 0);
                 z-index: 10;
             }
@@ -435,6 +440,9 @@
 
             &.left {
                 left: config.vwpc(200);
+                &::before {
+                    transform: translate3d(-50%, -50%, 0) scaleX(-1);
+                }
                 @include config.SP {
                     left: config.vwsp(10);
                 }

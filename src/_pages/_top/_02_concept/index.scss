@@ -197,12 +197,16 @@
                         border-radius: config.vwpc(20);
                         transform: translateY(config.vwpc(20));
                         transition: transform 0.3s ease;
+
                         @include config.SP {
+                            opacity: 1;
                             bottom: 0;
                             left: 0;
                             width: 100%;
+                            max-width: 100%;
                             padding: config.vwsp(20);
                             border-radius: 0;
+                            transform: translateY(0);
                         }
 
                         .inner {
@@ -210,6 +214,9 @@
                             z-index: 100;
                             opacity: 0;
                             transition: opacity 0.3s ease;
+                            @include config.SP {
+                                opacity: 1;
+                            }
                         }
 
                         &::after {
@@ -227,13 +234,17 @@
                             background: rgba(0, 0, 0, 0.3);
                             backdrop-filter: blur(8px);
                             transition: opacity 0.3s ease;
+                            @include config.SP {
+                                opacity: 1;
+                            }
                         }
 
                         .title {
                             position: relative;
                             z-index: 20;
-                            @include config.fontPc(24);
                             margin-bottom: config.vwpc(16);
+                            @include config.fontPc(24);
+                            
                             @include config.SP {
                                 font-size: config.vwsp(14);
                             }

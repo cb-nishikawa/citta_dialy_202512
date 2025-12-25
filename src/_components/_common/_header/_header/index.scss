@@ -36,6 +36,12 @@ $HEADER_MENU_COLOR: config.$DEFAULT_COLOR01;
             filter: invert(100%) sepia(0%) saturate(7461%) hue-rotate(72deg) brightness(99%) contrast(99%);
         }
     }
+
+    &_Scroll_PC {
+        @include config.PC {
+            width: config.vwpc($HEADER_LOGO_WIDTH * 0.7);
+        }
+    }
 }
 
 // グローバルナビメニュー
@@ -107,10 +113,18 @@ $HEADER_MENU_COLOR: config.$DEFAULT_COLOR01;
                 color: config.$DEFAULT_COLOR02 !important;
                 font-weight: 400;
                 @include config.fontPc(36);
-                letter-spacing: 0.05em;
             }
         }
     }
+
+    &_Scroll_PC {
+        @include config.PC {
+            li {
+                // @include config.fontPc(16);
+            }
+        }
+    }
+    
 }
 
 
@@ -165,9 +179,8 @@ $HEADER_MENU_COLOR: config.$DEFAULT_COLOR01;
             background-color: #FFF;
         }
     }
+    
 }
-
-
 
 .c-globalHeader01 {
     position: fixed;
@@ -241,6 +254,25 @@ $HEADER_MENU_COLOR: config.$DEFAULT_COLOR01;
 
             &>.area.menu {
                 @extend %menu;
+            }
+        }
+    }
+
+    &.is-scroll {
+         &>.componentWrapper {
+            @include config.PC {
+                position: relative;
+                z-index: 100;
+                padding-top: config.vwpc(20);
+                padding-bottom: config.vwpc(10);
+            }
+            &>.block.contents {
+                &>.area.logo {
+                    @extend %logo_Scroll_PC;
+                }
+                &>.area.menu {
+                    @extend %menu_Scroll_PC;
+                }
             }
         }
     }
